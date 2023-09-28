@@ -1,3 +1,5 @@
+using Application;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -12,9 +14,12 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(
         .AllowAnyHeader()
         .AllowAnyMethod()));
 
-
 builder.Services.AddHealthChecks();
 builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddApplication();
+builder.Services.AddPersistence(builder.Configuration);
+
 
 var app = builder.Build();
 
