@@ -19,7 +19,7 @@ builder.Services.AddHttpContextAccessor();
 var app = builder.Build();
 
 app.UseCors();
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
