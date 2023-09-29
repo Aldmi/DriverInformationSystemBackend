@@ -11,7 +11,7 @@ public class DatabaseFixture
     const string ConnectionString = "mongodb://root:pass12345@localhost:27017";
     const string DbName = "DIS_Test";
     
-    public readonly IMongoCollection<MetroTrain> MetroTrains;
+    public readonly IMongoCollection<Train> Trains;
     public readonly ConnectionThrottlingPipeline ConnectionThrottlingPipeline;
 
     public DatabaseFixture()
@@ -21,7 +21,7 @@ public class DatabaseFixture
         client.DropDatabase(DbName);
         var database = client.GetDatabase(DbName);
         
-        MetroTrains = database.GetCollection<MetroTrain>(MongoMetroTrainRepository.CollectionName);
+        Trains = database.GetCollection<Train>(TrainRepository.CollectionName);
         
         ConnectionThrottlingPipeline = new ConnectionThrottlingPipeline(client.Settings.MaxConnectionPoolSize);
     }
@@ -36,10 +36,10 @@ public class DatabaseFixture
     public void Cleanup()
     {
         //Remove all datas
-        MetroTrains.DeleteMany(_ => true);
+        Trains.DeleteMany(_ => true);
         
         //Seed
-        MetroTrains.InsertMany(MetroTrainsFactory.SeedList);
+        Trains.InsertMany(TrainsFactory.SeedList);
     }
 }
 

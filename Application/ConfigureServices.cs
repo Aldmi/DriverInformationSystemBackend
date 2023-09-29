@@ -33,7 +33,6 @@ public static class DependencyInjection
         BsonMapperConfigurate();
         
         var maxConnectionPoolSize = 800;
-        var connectionString = configuration.GetConnectionString("Mongodb");//debug
         services.AddSingleton<IMongoDatabase>(_ =>
         {
             var connectionString = configuration.GetConnectionString("Mongodb");
@@ -56,11 +55,11 @@ public static class DependencyInjection
         
         //REPOSITORIES-------------------------------------------------------------------
         //реализация интерфейса IMongoCollection по умолчанию потокобезопасна
-        services.AddSingleton<IMongoCollection<MetroTrain>>(provider => {
+        services.AddSingleton<IMongoCollection<Train>>(provider => {
             var db= provider.GetRequiredService<IMongoDatabase>();
-            return db.GetCollection<MetroTrain>(MongoMetroTrainRepository.CollectionName);
+            return db.GetCollection<Train>(TrainRepository.CollectionName);
         });
-        services.AddSingleton<IMetroTrainRepository, MongoMetroTrainRepository>();
+        services.AddSingleton<ITrainRepository, TrainRepository>();
         
     
         // services.AddScoped<IDomainEventService, DomainEventService>();
@@ -81,37 +80,5 @@ public static class DependencyInjection
             cm.MapIdMember(i => i.Id);
             cm.SetIsRootClass(true);
         });
-        // BsonClassMap.RegisterClassMap<Entity<string>>(cm => {
-        //     cm.AutoMap();
-        //     cm.SetIgnoreExtraElements(true);
-        // });
-        // BsonClassMap.RegisterClassMap<Entity<string>>(cm => {
-        //     cm.AutoMap();
-        //     cm.SetIgnoreExtraElements(true);
-        // });
-        // BsonClassMap.RegisterClassMap<Entity<string>>(cm => {
-        //     cm.AutoMap();
-        //     cm.SetIgnoreExtraElements(true);
-        // });
-        // BsonClassMap.RegisterClassMap<Entity<string>>(cm => {
-        //     cm.AutoMap();
-        //     cm.SetIgnoreExtraElements(true);
-        // });
-        // BsonClassMap.RegisterClassMap<StringInsertModelExt>(cm => {
-        //     cm.AutoMap();
-        //     cm.SetIgnoreExtraElements(true);
-        //     cm.MapCreator(p => new StringInsertModelExt(
-        //         p.Key,
-        //         p.Format,
-        //         p.BorderSubString,
-        //         p.StringHandlerMiddleWareOption,
-        //         p.DateTimeHandlerMiddleWareOption,
-        //         p.MathematicFormula));
-        // });
-        // BsonClassMap.RegisterClassMap<TcpIpOption>(cm => {
-        //     cm.AutoMap();
-        //     cm.SetIgnoreExtraElements(true);
-        // });
-        
     }
 }

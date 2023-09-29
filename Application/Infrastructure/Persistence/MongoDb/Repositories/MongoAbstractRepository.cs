@@ -40,9 +40,12 @@ public class MongoAbstractRepository<T> where T : Entity<Guid>
 
     public async Task<Guid?> AddOrReplace(T entity)
     {
-        // if (string.IsNullOrEmpty(entity.Id))  {
-        //     throw new ArgumentException("entity.Key cant be null or empty");
-        // }
+        if (entity.Id == Guid.Empty)
+        {
+            await ConnectionThrottlingPipeline.AddRequest(
+                Collections.InsertOneAsync(entity));
+            return entity.Id;
+        }
         var res= await ConnectionThrottlingPipeline.AddRequest(
             Collections.ReplaceOneAsync(c =>c.Id == entity.Id, entity, new ReplaceOptions{IsUpsert = true}));
         return res.ModifiedCount == 0 ? null : entity.Id;

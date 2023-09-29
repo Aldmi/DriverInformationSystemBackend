@@ -9,7 +9,6 @@ public class IpCamera : ValueObject<IpCamera>
 {
     public string IpAddress { get; }
     
-    
     public IpCamera(string ipAddress)
     {
         IpAddress = ipAddress;
