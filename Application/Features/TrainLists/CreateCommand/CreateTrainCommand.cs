@@ -34,11 +34,11 @@ public class CreateTrainCommand : IRequest<Guid>
 /// 4.Проверить уникальность IpCamera и UniqCarrigeNumber в пределах TrainDto
 /// 5.Провреить уникальность IpCamera и UniqCarrigeNumber переданного TrainDto с сохраненными в БД Trains
 /// </summary>
-public class CreateTodoListCommandValidator : AbstractValidator<CreateTrainCommand>
+public class CreateTrainValidator : AbstractValidator<CreateTrainCommand>
 {
     private readonly ITrainRepository _trainRepository;
     
-    public CreateTodoListCommandValidator(ITrainRepository trainRepository)
+    public CreateTrainValidator(ITrainRepository trainRepository)
     {
         _trainRepository = trainRepository;
 
@@ -56,11 +56,11 @@ public class CreateTodoListCommandValidator : AbstractValidator<CreateTrainComma
     }
 
 
-    internal sealed class CreateTodoListCommandHandler : IRequestHandler<CreateTrainCommand, Guid>
+    internal sealed class CreateTrainCommandHandler : IRequestHandler<CreateTrainCommand, Guid>
     {
         private readonly ITrainRepository _trainRepository;
 
-        public CreateTodoListCommandHandler(ITrainRepository trainRepository)
+        public CreateTrainCommandHandler(ITrainRepository trainRepository)
         {
             _trainRepository = trainRepository;
         }

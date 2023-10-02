@@ -22,7 +22,7 @@ public class MongoAbstractRepository<T> where T : Entity<Guid>
         return await cursor.SingleAsync();
     }
     
-    public async Task<T> GetByIdAsync(Guid key)
+    public async Task<T?> GetByIdAsync(Guid key)
     {
         var cursor = await Collections.FindAsync(c => c.Id == key);
         return await cursor.FirstOrDefaultAsync();

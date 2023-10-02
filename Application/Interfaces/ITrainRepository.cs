@@ -5,7 +5,7 @@ namespace Application.Interfaces;
 
 public interface ITrainRepository
 {
-     Task<Train> GetByIdAsync(Guid id);
+     Task<Train?> GetByIdAsync(Guid id);
      Task<Train> GetSingleAsync(Expression<Func<Train, bool>> predicate);
      Task<IReadOnlyList<Train>> ListAsync();
      Task<IReadOnlyList<Train>> ListAsync(Expression<Func<Train, bool>> predicate);

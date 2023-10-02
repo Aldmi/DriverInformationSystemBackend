@@ -25,11 +25,11 @@ public class DeleteTrainCommand: IRequest
 }
 
 
-internal sealed class DeleteTodoItemCommandHandler : IRequestHandler<DeleteTrainCommand>
+internal sealed class DeleteTrainCommandHandler : IRequestHandler<DeleteTrainCommand>
 {
     private readonly ITrainRepository _trainRepository;
 
-    public DeleteTodoItemCommandHandler(ITrainRepository trainRepository)
+    public DeleteTrainCommandHandler(ITrainRepository trainRepository)
     {
         _trainRepository = trainRepository;
     }
