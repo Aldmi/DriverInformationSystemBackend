@@ -22,7 +22,10 @@ public class CreateTrainController : ApiControllerBase
 //[Authorize]
 public class CreateTrainCommand : IRequest<Guid>
 {
-    public TrainDto Train { get; set; }
+    public string? Name { get; set; }
+    public LocomotiveDto LocomotiveOne { get; set; }
+    public LocomotiveDto LocomotiveTwo { get; set; }
+    public CarrigeDto[] Carriges { get; set; }
 }
 
 
@@ -68,26 +71,26 @@ public class CreateTrainValidator : AbstractValidator<CreateTrainCommand>
         
         public async Task<Guid> Handle(CreateTrainCommand request, CancellationToken cancellationToken)
         {
-            var trainDto = request.Train;
+         
             
             var locomotiveOne = Locomotive.Create(
-                new CarrigeNumber(trainDto.LocomotiveOne.UniqCarrigeNumber),
-                new IpCamera(trainDto.LocomotiveOne.CameraFirstIpAddress),
-                new IpCamera(trainDto.LocomotiveOne.CameraSecondIpAddress)).Value;
+                new CarrigeNumber(request.LocomotiveOne.UniqCarrigeNumber),
+                new IpCamera(request.LocomotiveOne.CameraFirstIpAddress),
+                new IpCamera(request.LocomotiveOne.CameraSecondIpAddress)).Value;
             
             var locomotiveTwo = Locomotive.Create(
-                new CarrigeNumber(trainDto.LocomotiveTwo.UniqCarrigeNumber),
-                new IpCamera(trainDto.LocomotiveTwo.CameraFirstIpAddress),
-                new IpCamera(trainDto.LocomotiveTwo.CameraSecondIpAddress)).Value;
+                new CarrigeNumber(request.LocomotiveTwo.UniqCarrigeNumber),
+                new IpCamera(request.LocomotiveTwo.CameraFirstIpAddress),
+                new IpCamera(request.LocomotiveTwo.CameraSecondIpAddress)).Value;
 
-            var carriges = trainDto.Carriges.Select(carrigeDto => Carrige.Create(
+            var carriges = request.Carriges.Select(carrigeDto => Carrige.Create(
                 new CarrigeNumber(carrigeDto.UniqCarrigeNumber),
                 1,
                 new IpCamera(carrigeDto.CameraFirstIpAddress),
                 new IpCamera(carrigeDto.CameraSecondIpAddress)).Value
             ).ToArray();
 
-            var train = Train.Create(trainDto.Name, locomotiveOne, locomotiveTwo, carriges).Value;
+            var train = Train.Create(request.Name, locomotiveOne, locomotiveTwo, carriges).Value;
 
             var id= await _trainRepository.AddOrReplace(train);
             return id!.Value;
