@@ -37,9 +37,26 @@ public class Locomotive : Entity<Guid>
 
     public static Result<Locomotive> Create(CarrigeNumber carrigeNumber, IpCamera ipCameraFirst, IpCamera ipCameraSecond)
     {
+        var obj = new Locomotive(carrigeNumber, ipCameraFirst, ipCameraSecond);
+        return obj;
+    }
+    
+    
+    /// <summary>
+    /// Создать локомотив для поезда на базе уже добавленного локомотива в справочник.
+    /// Указать Id этого локомотива.
+    /// </summary>
+    /// <param name="existingId"></param>
+    /// <param name="carrigeNumber"></param>
+    /// <param name="seriaCarrigeNumber"></param>
+    /// <param name="ipCameraFirst"></param>
+    /// <param name="ipCameraSecond"></param>
+    /// <returns></returns>
+    public static Result<Locomotive> CreateWithexistingGuid(Guid existingId, CarrigeNumber carrigeNumber, IpCamera ipCameraFirst, IpCamera ipCameraSecond)
+    {
         var obj = new Locomotive(carrigeNumber, ipCameraFirst, ipCameraSecond)
         {
-            Id = Guid.NewGuid()
+            Id = existingId
         };
         return obj;
     }

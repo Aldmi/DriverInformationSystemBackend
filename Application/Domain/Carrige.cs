@@ -44,9 +44,25 @@ public class Carrige : Entity<Guid>
     
     public static Result<Carrige> Create(CarrigeNumber carrigeNumber, int seriaCarrigeNumber, IpCamera ipCameraFirst, IpCamera ipCameraSecond)
     {
+        var obj = new Carrige(carrigeNumber, seriaCarrigeNumber, ipCameraFirst, ipCameraSecond);
+        return obj;
+    }
+    
+    /// <summary>
+    /// Создать вагон для поезда на базе уже добавленного вагона в справочник.
+    /// Указать Id этого вагона.
+    /// </summary>
+    /// <param name="existingId"></param>
+    /// <param name="carrigeNumber"></param>
+    /// <param name="seriaCarrigeNumber"></param>
+    /// <param name="ipCameraFirst"></param>
+    /// <param name="ipCameraSecond"></param>
+    /// <returns></returns>
+    public static Result<Carrige> CreateWithexistingGuid(Guid existingId, CarrigeNumber carrigeNumber, int seriaCarrigeNumber, IpCamera ipCameraFirst, IpCamera ipCameraSecond)
+    {
         var obj = new Carrige(carrigeNumber, seriaCarrigeNumber, ipCameraFirst, ipCameraSecond)
         {
-            Id = Guid.NewGuid()
+            Id = existingId
         };
         return obj;
     }
