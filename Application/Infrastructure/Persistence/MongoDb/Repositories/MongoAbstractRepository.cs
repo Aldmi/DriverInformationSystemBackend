@@ -42,8 +42,7 @@ public class MongoAbstractRepository<T> where T : Entity<Guid>
     {
         if (entity.Id == Guid.Empty)
         {
-            await ConnectionThrottlingPipeline.AddRequest(
-                Collections.InsertOneAsync(entity));
+            await ConnectionThrottlingPipeline.AddRequest(Collections.InsertOneAsync(entity));
             return entity.Id;
         }
         var res= await ConnectionThrottlingPipeline.AddRequest(

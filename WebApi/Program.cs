@@ -1,5 +1,4 @@
 using Application;
-using Application.Infrastructure.Persistence.MongoDb;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -49,12 +48,11 @@ else
 
 app.UseAuthorization();
 app.MapControllers();
+
 app.Run();
 
 
 //-------------
-
-
 // // Enable middleware to serve generated Swagger as a JSON endpoint.
 // app.UseSwagger();
 //

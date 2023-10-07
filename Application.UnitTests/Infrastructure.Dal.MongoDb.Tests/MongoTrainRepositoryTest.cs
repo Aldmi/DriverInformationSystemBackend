@@ -13,12 +13,12 @@ public class MongoTrainRepositoryTest
     public MongoTrainRepositoryTest(DatabaseFixture fixture)
     {
         Fixture = fixture;
-        Repository = new TrainRepository(Fixture.Trains, Fixture.ConnectionThrottlingPipeline);
+        Repository = new MongoTrainRepository(Fixture.Trains, Fixture.ConnectionThrottlingPipeline);
         Fixture.Cleanup();
     }
     
     private DatabaseFixture Fixture { get; }
-    private TrainRepository Repository { get; }
+    private MongoTrainRepository Repository { get; }
     
     
     [Fact]

@@ -21,7 +21,7 @@ public class DatabaseFixture
         client.DropDatabase(DbName);
         var database = client.GetDatabase(DbName);
         
-        Trains = database.GetCollection<Train>(TrainRepository.CollectionName);
+        Trains = database.GetCollection<Train>(MongoTrainRepository.CollectionName);
         
         ConnectionThrottlingPipeline = new ConnectionThrottlingPipeline(client.Settings.MaxConnectionPoolSize);
     }

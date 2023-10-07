@@ -19,7 +19,7 @@ public class DeleteTrainCommandController : ApiControllerBase
 }
 
 
-public class DeleteTrainCommand: IRequest
+public class DeleteTrainCommand : IRequest
 {
     public Guid Id { get; set; }
 }

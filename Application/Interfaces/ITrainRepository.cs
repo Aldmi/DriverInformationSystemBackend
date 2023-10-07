@@ -12,7 +12,7 @@ public interface ITrainRepository
      
      /// <summary>
      /// Id уже есть в БД - выполняем Replace entity, возвращаем id измененной сущности или null если небыло изменений
-     /// Id нет в БД - выполняем Add entity, возвращаем null.
+     /// Id нет в БД - выполняем Add entity, возвращаем id сгенерированный на стороне БД.
      /// </summary>
      Task<Guid?> AddOrReplace(Train entity);
      Task AddRangeAsync(IReadOnlyList<Train> entitys); 

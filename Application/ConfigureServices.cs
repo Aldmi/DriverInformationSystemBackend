@@ -59,11 +59,17 @@ public static class DependencyInjection
         //реализация интерфейса IMongoCollection по умолчанию потокобезопасна
         services.AddSingleton<IMongoCollection<Train>>(provider => {
             var db= provider.GetRequiredService<IMongoDatabase>();
-            return db.GetCollection<Train>(TrainRepository.CollectionName);
+            return db.GetCollection<Train>(MongoTrainRepository.CollectionName);
         });
-        services.AddSingleton<ITrainRepository, TrainRepository>();
+        services.AddSingleton<ITrainRepository, MongoTrainRepository>();
         
-    
+        services.AddSingleton<IMongoCollection<RouteMetro>>(provider => {
+            var db= provider.GetRequiredService<IMongoDatabase>();
+            return db.GetCollection<RouteMetro>(MongoTrainRepository.CollectionName);
+        });
+        services.AddSingleton<IRouteMetroRepository, MongoRouteMetroRepository>();
+        
+        
         // services.AddScoped<IDomainEventService, DomainEventService>();
         //
         // services.AddTransient<IDateTime, DateTimeService>();
@@ -77,7 +83,7 @@ public static class DependencyInjection
 
     public static void BsonMapperConfigurate()
     {
-        BsonClassMap.RegisterClassMap<Entity<string>>(cm => {
+        BsonClassMap.RegisterClassMap<Entity<Guid>>(cm => {
             cm.AutoMap();
             cm.MapIdMember(i => i.Id);
             cm.SetIsRootClass(true);
