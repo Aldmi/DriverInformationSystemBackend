@@ -1,6 +1,7 @@
 ﻿using Application.Common;
 using Application.Common.Exceptions;
 using Application.Domain;
+using Application.Domain.TrainAgregat;
 using Application.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

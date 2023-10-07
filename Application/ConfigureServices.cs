@@ -1,6 +1,8 @@
 ﻿using System.Reflection;
 using Application.Common.Behaviours;
 using Application.Domain;
+using Application.Domain.RouteMetroAgregat;
+using Application.Domain.TrainAgregat;
 using Application.Infrastructure.Persistence.MongoDb;
 using Application.Infrastructure.Persistence.MongoDb.Repositories;
 using Application.Interfaces;

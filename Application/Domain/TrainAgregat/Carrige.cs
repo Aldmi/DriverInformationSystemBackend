@@ -1,7 +1,7 @@
 ﻿using Application.ValueObjects;
 using CSharpFunctionalExtensions;
 
-namespace Application.Domain;
+namespace Application.Domain.TrainAgregat;
 
 /// <summary>
 /// Вагон пассажирский
@@ -58,7 +58,7 @@ public class Carrige : Entity<Guid>
     /// <param name="ipCameraFirst"></param>
     /// <param name="ipCameraSecond"></param>
     /// <returns></returns>
-    public static Result<Carrige> CreateWithexistingGuid(Guid existingId, CarrigeNumber carrigeNumber, int seriaCarrigeNumber, IpCamera ipCameraFirst, IpCamera ipCameraSecond)
+    public static Result<Carrige> CreateWithExistingGuid(Guid existingId, CarrigeNumber carrigeNumber, int seriaCarrigeNumber, IpCamera ipCameraFirst, IpCamera ipCameraSecond)
     {
         var obj = new Carrige(carrigeNumber, seriaCarrigeNumber, ipCameraFirst, ipCameraSecond)
         {

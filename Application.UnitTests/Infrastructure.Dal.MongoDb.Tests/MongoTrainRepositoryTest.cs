@@ -1,4 +1,5 @@
 ﻿using Application.Domain;
+using Application.Domain.TrainAgregat;
 using Application.Infrastructure.Persistence.MongoDb.Repositories;
 using Application.UnitTests.Infrastructure.Dal.MongoDb.Tests.Fixtures;
 using Application.UnitTests.Infrastructure.Dal.MongoDb.Tests.SeedDatas;

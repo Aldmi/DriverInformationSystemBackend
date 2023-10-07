@@ -1,4 +1,6 @@
 ﻿using Application.Domain;
+using Application.Domain.RouteMetroAgregat;
+using Application.Domain.TrainAgregat;
 using Application.Infrastructure.Persistence.MongoDb;
 using Application.Infrastructure.Persistence.MongoDb.Repositories;
 using Application.UnitTests.Infrastructure.Dal.MongoDb.Tests.SeedDatas;
@@ -12,6 +14,7 @@ public class DatabaseFixture
     const string DbName = "DIS_Test";
     
     public readonly IMongoCollection<Train> Trains;
+    public readonly IMongoCollection<RouteMetro> Routes;
     public readonly ConnectionThrottlingPipeline ConnectionThrottlingPipeline;
 
     public DatabaseFixture()
@@ -22,6 +25,7 @@ public class DatabaseFixture
         var database = client.GetDatabase(DbName);
         
         Trains = database.GetCollection<Train>(MongoTrainRepository.CollectionName);
+        Routes = database.GetCollection<RouteMetro>(MongoRouteMetroRepository.CollectionName);
         
         ConnectionThrottlingPipeline = new ConnectionThrottlingPipeline(client.Settings.MaxConnectionPoolSize);
     }
@@ -37,9 +41,11 @@ public class DatabaseFixture
     {
         //Remove all datas
         Trains.DeleteMany(_ => true);
+        Routes.DeleteMany(_ => true);
         
         //Seed
         Trains.InsertMany(TrainsFactory.SeedList);
+        Routes.InsertMany(RoutesMetroFactory.SeedList);
     }
 }
 

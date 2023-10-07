@@ -1,5 +1,6 @@
 ﻿using Application.Common;
 using Application.Domain;
+using Application.Domain.TrainAgregat;
 using Application.Interfaces;
 using Application.ValueObjects;
 using FluentValidation;

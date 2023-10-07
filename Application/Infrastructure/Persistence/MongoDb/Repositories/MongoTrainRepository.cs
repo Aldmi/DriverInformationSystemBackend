@@ -1,4 +1,5 @@
 ﻿using Application.Domain;
+using Application.Domain.TrainAgregat;
 using Application.Interfaces;
 using MongoDB.Driver;
 

@@ -1,4 +1,4 @@
-﻿using Application.Domain;
+﻿using Application.Domain.TrainAgregat;
 using Application.ValueObjects;
 
 namespace Application.UnitTests.Infrastructure.Dal.MongoDb.Tests.SeedDatas;

@@ -1,7 +1,7 @@
 ﻿using Application.ValueObjects;
 using CSharpFunctionalExtensions;
 
-namespace Application.Domain;
+namespace Application.Domain.TrainAgregat;
 
 /// <summary>
 /// Локомотив
@@ -52,7 +52,7 @@ public class Locomotive : Entity<Guid>
     /// <param name="ipCameraFirst"></param>
     /// <param name="ipCameraSecond"></param>
     /// <returns></returns>
-    public static Result<Locomotive> CreateWithexistingGuid(Guid existingId, CarrigeNumber carrigeNumber, IpCamera ipCameraFirst, IpCamera ipCameraSecond)
+    public static Result<Locomotive> CreateWithExistingGuid(Guid existingId, CarrigeNumber carrigeNumber, IpCamera ipCameraFirst, IpCamera ipCameraSecond)
     {
         var obj = new Locomotive(carrigeNumber, ipCameraFirst, ipCameraSecond)
         {

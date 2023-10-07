@@ -1,6 +1,6 @@
 ﻿using CSharpFunctionalExtensions;
 
-namespace Application.Domain;
+namespace Application.Domain.TrainAgregat;
 
 public class Train : Entity<Guid>
 {
