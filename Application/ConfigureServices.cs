@@ -7,6 +7,7 @@ using Application.Domain.TrainAgregat;
 using Application.Features.Login;
 using Application.Infrastructure.Persistence.MongoDb;
 using Application.Infrastructure.Persistence.MongoDb.Repositories;
+using Application.InitWorkers;
 using Application.Interfaces;
 using CSharpFunctionalExtensions;
 using FluentValidation;
@@ -31,6 +32,8 @@ public static class DependencyInjection
         // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
 
         services.AddSingleton<JwtTokenGenerator>();
+
+        services.AddHostedService<InitDbHostedService>();
         
         return services;
     }

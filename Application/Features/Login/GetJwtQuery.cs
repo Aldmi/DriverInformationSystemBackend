@@ -61,7 +61,6 @@ internal sealed class GetJwtQueryHandler : IRequestHandler<GetJwtQuery, Result<J
     public async Task<Result<JwtResponse>> Handle(GetJwtQuery request, CancellationToken cancellationToken)
     {
         var person= await _personeRepository.GetOrDefaultAsync(persone => persone.Name == request.Login);
-        person =  Person.Create("Vasya", "12345", Role.Engineer).Value;//DEBUG
         if(person is null) 
             return Result.Failure<JwtResponse>("Login not found");
 

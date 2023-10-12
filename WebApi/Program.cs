@@ -93,8 +93,8 @@ app.Map("/authTest", [Authorize](HttpContext context)  =>
         return Results.Json(new
         { 
             Auth=true,
-            Login=login,
-            Role= role
+            Login=login?.Value,
+            Role= role?.Value
         });
     }
     return Results.Json(new
