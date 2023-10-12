@@ -23,7 +23,7 @@ public class GetTrainItemController : ApiControllerBase
 
 public class GetTrainItemQuery: IRequest<TrainItemVm>
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; init; }
 }
 
 

@@ -2,23 +2,23 @@
 
 public class TrainDto
 {
-   public string? Name { get; set; }
-   public LocomotiveDto LocomotiveOne { get; set; }
-   public LocomotiveDto LocomotiveTwo { get; set; }
-   public CarrigeDto[] Carriges { get; set; }
+   public string? Name { get; init; }
+   public LocomotiveDto LocomotiveOne { get; init; }
+   public LocomotiveDto LocomotiveTwo { get; init; }
+   public CarrigeDto[] Carriges { get; init; }
 }
 
 public class LocomotiveDto
 {
-   public string UniqCarrigeNumber { get; set; }
-   public string CameraFirstIpAddress { get; set; }
-   public string CameraSecondIpAddress { get; set; }
+   public string UniqCarrigeNumber { get; init; }
+   public string CameraFirstIpAddress { get; init; }
+   public string CameraSecondIpAddress { get; init; }
 }
 
 public class CarrigeDto
 {
-    public string UniqCarrigeNumber { get; set; }
-    public string CameraFirstIpAddress { get; set; }
-    public string CameraSecondIpAddress { get; set; }
+    public string UniqCarrigeNumber { get; init; }
+    public string CameraFirstIpAddress { get; init; }
+    public string CameraSecondIpAddress { get; init; }
 }
 

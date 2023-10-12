@@ -4,7 +4,7 @@ using Application.Domain;
 using Application.Domain.PersonAgregat;
 using Application.Domain.RouteMetroAgregat;
 using Application.Domain.TrainAgregat;
-using Application.Features.Login.GetJwt;
+using Application.Features.Login;
 using Application.Infrastructure.Persistence.MongoDb;
 using Application.Infrastructure.Persistence.MongoDb.Repositories;
 using Application.Interfaces;
@@ -27,7 +27,6 @@ public static class DependencyInjection
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
         
         //services.AddTransient(typeof(IPipelineBehavior<,>), typeof(UnhandledExceptionBehaviour<,>));
-        // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(AuthorizationBehaviour<,>));
          services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
         // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
 

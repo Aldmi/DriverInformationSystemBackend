@@ -9,7 +9,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Application.Features.Login.GetJwt;
+namespace Application.Features.Login;
 
 public class GetJwtController : ApiControllerBase
 {
@@ -31,18 +31,18 @@ public class GetJwtController : ApiControllerBase
 
 public class JwtResponse
 {
-    public string access_token { get; set; }
-    public string user_name { get; set; }
-    public string role_name { get; set; }
-    public DateTime generate_time { get; set; }
-    public DateTime expired_time { get; set; }
+    public string access_token { get; init; }
+    public string user_name { get; init; }
+    public string role_name { get; init; }
+    public DateTime generate_time { get; init; }
+    public DateTime expired_time { get; init; }
 }
 
 
 public class GetJwtQuery: IRequest<Result<JwtResponse>>
 {
-    public string Login { get; set; }
-    public string Password { get; set; } //TODO: передавать в защифрованном виде (ключ шифрования известен и на клиенте и на сервере)
+    public string Login { get; init; }
+    public string Password { get; init; } //TODO: передавать в защифрованном виде (ключ шифрования известен и на клиенте и на сервере)
 }
 
 

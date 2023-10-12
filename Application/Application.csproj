@@ -21,6 +21,7 @@
     </ItemGroup>
     
     <ItemGroup>
+      <Folder Include="Features\Persones\GetItemQuery\" />
       <Folder Include="Features\RouteList\CreateCommand\" />
       <Folder Include="Features\RouteList\DeleteCommand\" />
       <Folder Include="Features\RouteList\GetItemQuery\" />

@@ -3,7 +3,6 @@ using Application.Domain.TrainAgregat;
 using Application.Interfaces;
 using Application.ValueObjects;
 using MediatR;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Features.TrainLists.CreateCommand;
@@ -13,7 +12,7 @@ public class CreateTrainController : ApiControllerBase
 {
     //[Authorize(Roles = "admin")]
     [HttpPost("/api/trains")]
-    public async Task<ActionResult<Guid>> Create(CreateTrainCommand command)
+    public async Task<ActionResult<Guid>> Create([FromBody]CreateTrainCommand command)
     {
         return await Mediator.Send(command);
     }
@@ -22,10 +21,10 @@ public class CreateTrainController : ApiControllerBase
 
 public class CreateTrainCommand : IRequest<Guid>
 {
-    public string? Name { get; set; }
-    public LocomotiveDto LocomotiveOne { get; set; }
-    public LocomotiveDto LocomotiveTwo { get; set; }
-    public CarrigeDto[] Carriges { get; set; }
+    public string? Name { get; init; }
+    public LocomotiveDto LocomotiveOne { get; init; }
+    public LocomotiveDto LocomotiveTwo { get; init; }
+    public CarrigeDto[] Carriges { get; init; }
 }
 
 
@@ -43,8 +42,6 @@ internal sealed class CreateTrainCommandHandler : IRequestHandler<CreateTrainCom
         
     public async Task<Guid> Handle(CreateTrainCommand request, CancellationToken cancellationToken)
     {
-         
-            
         var locomotiveOne = Locomotive.Create(
             new CarrigeNumber(request.LocomotiveOne.UniqCarrigeNumber),
             new IpCamera(request.LocomotiveOne.CameraFirstIpAddress),

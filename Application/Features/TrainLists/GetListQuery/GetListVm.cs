@@ -4,24 +4,24 @@ namespace Application.Features.TrainLists.GetListQuery;
 
 public class TrainVm
 { 
-   public Guid Id { get; set; }
-   public string? Name { get; set; }
-   public LocomotiveVm LocomotiveOne { get; set; }
-   public LocomotiveVm LocomotiveTwo { get; set; }
-   public CarrigeVm[] Carriges { get; set; }
+   public Guid Id { get; init; }
+   public string? Name { get; init; }
+   public LocomotiveVm LocomotiveOne { get; init; }
+   public LocomotiveVm LocomotiveTwo { get; init; }
+   public CarrigeVm[] Carriges { get; init; }
 }
 
 public class LocomotiveVm
 {
-   public string UniqCarrigeNumber { get; set; }
-   public string CameraFirstIpAddress { get; set; }
-   public string CameraSecondIpAddress { get; set; }
+   public string UniqCarrigeNumber { get; init; }
+   public string CameraFirstIpAddress { get; init; }
+   public string CameraSecondIpAddress { get; init; }
 }
 
 public class CarrigeVm
 {
-    public string UniqCarrigeNumber { get; set; }
-    public string CameraFirstIpAddress { get; set; }
-    public string CameraSecondIpAddress { get; set; }
+    public string UniqCarrigeNumber { get; init; }
+    public string CameraFirstIpAddress { get; init; }
+    public string CameraSecondIpAddress { get; init; }
 }
 

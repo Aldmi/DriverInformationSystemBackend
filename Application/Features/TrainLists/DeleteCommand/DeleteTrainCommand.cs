@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Application.Features.TrainLists.DeleteCommand;
 
 
-public class DeleteTrainCommandController : ApiControllerBase
+public class DeleteTrainController : ApiControllerBase
 {
     [HttpDelete("/api/trains/{id:guid}")]
     public async Task<ActionResult> Delete(Guid id)
@@ -22,7 +22,7 @@ public class DeleteTrainCommandController : ApiControllerBase
 
 public class DeleteTrainCommand : IRequest
 {
-    public Guid Id { get; set; }
+    public Guid Id { get; init; }
 }
 
 
