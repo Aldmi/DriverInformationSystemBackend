@@ -1,10 +1,9 @@
 ﻿using Application.Common;
-using Application.Domain;
 using Application.Domain.TrainAgregat;
 using Application.Interfaces;
 using Application.ValueObjects;
-using FluentValidation;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Features.TrainLists.CreateCommand;
@@ -12,6 +11,7 @@ namespace Application.Features.TrainLists.CreateCommand;
 
 public class CreateTrainController : ApiControllerBase
 {
+    //[Authorize(Roles = "admin")]
     [HttpPost("/api/trains")]
     public async Task<ActionResult<Guid>> Create(CreateTrainCommand command)
     {
@@ -20,7 +20,6 @@ public class CreateTrainController : ApiControllerBase
 }
 
 
-//[Authorize]
 public class CreateTrainCommand : IRequest<Guid>
 {
     public string? Name { get; set; }

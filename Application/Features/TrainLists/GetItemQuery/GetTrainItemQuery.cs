@@ -10,7 +10,7 @@ namespace Application.Features.TrainLists.GetItemQuery;
 
 public class GetTrainItemController : ApiControllerBase
 {
-    [HttpGet("/api/trains/{id}")]
+    [HttpGet("/api/trains/{id:guid}")]
     public async Task<ActionResult<TrainItemVm>> Get(Guid id)
     {
         return await Mediator.Send(new GetTrainItemQuery()

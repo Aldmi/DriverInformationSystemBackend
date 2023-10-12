@@ -1,8 +1,10 @@
 ﻿using System.Reflection;
 using Application.Common.Behaviours;
 using Application.Domain;
+using Application.Domain.PersonAgregat;
 using Application.Domain.RouteMetroAgregat;
 using Application.Domain.TrainAgregat;
+using Application.Features.Login.GetJwt;
 using Application.Infrastructure.Persistence.MongoDb;
 using Application.Infrastructure.Persistence.MongoDb.Repositories;
 using Application.Interfaces;
@@ -29,6 +31,8 @@ public static class DependencyInjection
          services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
         // services.AddTransient(typeof(IPipelineBehavior<,>), typeof(PerformanceBehaviour<,>));
 
+        services.AddSingleton<JwtTokenGenerator>();
+        
         return services;
     }
 
@@ -70,6 +74,12 @@ public static class DependencyInjection
             return db.GetCollection<RouteMetro>(MongoTrainRepository.CollectionName);
         });
         services.AddSingleton<IRouteMetroRepository, MongoRouteMetroRepository>();
+        
+        services.AddSingleton<IMongoCollection<Person>>(provider => {
+            var db= provider.GetRequiredService<IMongoDatabase>();
+            return db.GetCollection<Person>(MongoPersoneRepository.CollectionName);
+        });
+        services.AddSingleton<IPersoneRepository, MongoPersoneRepository>();
         
         
         // services.AddScoped<IDomainEventService, DomainEventService>();

@@ -11,7 +11,7 @@ namespace Application.Features.TrainLists.DeleteCommand;
 
 public class DeleteTrainCommandController : ApiControllerBase
 {
-    [HttpDelete("/api/trains/{id}")]
+    [HttpDelete("/api/trains/{id:guid}")]
     public async Task<ActionResult> Delete(Guid id)
     {
         await Mediator.Send(new DeleteTrainCommand { Id = id });

@@ -1,9 +1,39 @@
+using System.Security.Claims;
 using Application;
+using Application.Common.Auth;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidIssuer = AuthJwtOptions.ISSUER,
+            ValidateAudience = true,
+            ValidAudience = AuthJwtOptions.AUDIENCE,
+            IssuerSigningKey = AuthJwtOptions.GetSymmetricSecurityKey(),
+            ValidateIssuerSigningKey = true,
+            
+            ValidateLifetime = true,
+            LifetimeValidator = (_, expires, _, _) =>
+            {
+                if (expires != null)
+                {
+                    return expires > DateTime.UtcNow;
+                }
+                return false;
+            }
+        };
+    });
+builder.Services.AddAuthorization();  
+
+
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
@@ -27,7 +57,6 @@ builder.Services.AddPersistence(builder.Configuration);
 var app = builder.Build();
 
 app.UseCors();
-//app.UseHttpsRedirection();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -46,8 +75,33 @@ else
     app.UseExceptionHandler("/error");
 }
 
+app.UseHttpsRedirection();
+
+app.UseAuthentication();
 app.UseAuthorization();
+
 app.MapControllers();
+
+//End point - проверка авторизации
+app.Map("/authTest", [Authorize](HttpContext context)  =>
+{
+    var user = context.User.Identity;
+    if (user is not null && user.IsAuthenticated)
+    {
+        var login = context.User.FindFirst(ClaimsIdentity.DefaultNameClaimType);
+        var role = context.User.FindFirst(ClaimsIdentity.DefaultRoleClaimType); 
+        return Results.Json(new
+        { 
+            Auth=true,
+            Login=login,
+            Role= role
+        });
+    }
+    return Results.Json(new
+    { 
+        Auth=false
+    });
+});
 
 app.Run();
 
