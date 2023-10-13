@@ -1,5 +1,4 @@
-﻿using System.Text.Json;
-
+﻿
 namespace WebApi.WebApiServices;
 
 public static class VersionService
@@ -8,11 +7,10 @@ public static class VersionService
     {
         var ver = new
         {
-            Ver= 1.0,
-            Description="Базовая версия",
-            Git=""
+            Ver= "1.0.0",
+            Description= "Базовая версия",
+            Git= ""
         };
        return $"Ver: '{ver.Ver}'\tDescription= '{ver.Description}'\t Git= '{ver.Git}'\t";
     }
 }
-

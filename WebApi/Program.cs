@@ -1,7 +1,6 @@
 using System.Security.Claims;
 using Application;
 using Application.Common.Auth;
-using Application.Interfaces;
 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
@@ -37,8 +36,6 @@ builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
     });
 builder.Services.AddAuthorization();  
 
-
-
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
@@ -46,9 +43,9 @@ builder.Services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title =
 
 builder.Services.AddProblemDetails();
 
-
 builder.Services.AddCors(options => options.AddDefaultPolicy(
-    policy => policy.AllowAnyOrigin()
+    policy => policy
+        .AllowAnyOrigin()
         .AllowAnyHeader()
         .AllowAnyMethod()));
 
@@ -80,6 +77,8 @@ else
     app.UseExceptionHandler("/error");
 }
 
+app.UseCors();
+
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
@@ -109,36 +108,6 @@ app.Map("/authTest", [Authorize](HttpContext context)  =>
 });
 
 //End point - проверка работоспособности
-app.MapGet("_helth", () => VersionService.GetVersion());
+app.MapGet("_version", () => VersionService.GetVersion());
 
 app.Run();
-
-
-//-------------
-// // Enable middleware to serve generated Swagger as a JSON endpoint.
-// app.UseSwagger();
-//
-// // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), specifying the Swagger JSON endpoint.
-// app.UseSwaggerUI(options =>
-// {
-//     options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-//     options.RoutePrefix = string.Empty;
-// });
-//
-// app.UseCors();
-//
-// app.UseHttpsRedirection();
-//
-// if (app.Environment.IsDevelopment())
-// {
-//     app.UseExceptionHandler("/error-development");
-// }
-// else
-// {
-//     app.UseExceptionHandler("/error");
-// }
-//
-// app.UseAuthorization();
-// app.MapControllers();
-//
-// app.Run();
