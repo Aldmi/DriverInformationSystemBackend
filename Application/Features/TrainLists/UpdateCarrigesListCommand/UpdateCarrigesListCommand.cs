@@ -11,7 +11,7 @@ namespace Application.Features.TrainLists.UpdateCarrigesListCommand;
 public class UpdateCarrigesListController : ApiControllerBase
 {
     //[Authorize(Roles = "admin")]
-    [HttpPut("/api/trains")]
+    [HttpPut("/api/trains/updateCarrigesListSeq")]
     public async Task<ActionResult<Guid>> Update([FromBody]UpdateCarrigesListCommand command)
     {
         var result=await Mediator.Send(command);
