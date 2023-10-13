@@ -1,13 +1,16 @@
 using System.Security.Claims;
 using Application;
 using Application.Common.Auth;
-
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using WebApi.WebApiServices;
 
-Console.WriteLine(VersionService.GetVersion());//TODO: выводить в логере
+//Console.WriteLine(VersionService.GetVersion());//TODO: выводить в логере
+
+ILoggerFactory loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
+ILogger logger = loggerFactory.CreateLogger<Program>();
+logger.LogInformation("{Version}", VersionService.GetVersion());
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -52,8 +55,8 @@ builder.Services.AddCors(options => options.AddDefaultPolicy(
 builder.Services.AddHealthChecks();
 builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddApplication();
-builder.Services.AddPersistence(builder.Configuration);
+builder.Services.AddApplication(logger);
+builder.Services.AddPersistence(builder.Configuration, logger);
 
 
 var app = builder.Build();

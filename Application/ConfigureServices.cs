@@ -16,13 +16,14 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using MongoDB.Bson.Serialization;
 
 namespace Application;
 
 public static class DependencyInjection
 {
-    public static IServiceCollection AddApplication(this IServiceCollection services)
+    public static IServiceCollection AddApplication(this IServiceCollection services, ILogger logger)
     {
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
@@ -39,7 +40,7 @@ public static class DependencyInjection
         return services;
     }
 
-    public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration, ILogger logger)
     {
         BsonMapperConfigurate();
         
@@ -47,6 +48,7 @@ public static class DependencyInjection
         services.AddSingleton<IMongoDatabase>(_ =>
         {
             var connectionString = configuration.GetConnectionString("Mongodb");
+            logger.LogInformation("{DbConnectionString}", connectionString);
             var url = MongoUrl.Create(connectionString);
             var client = new MongoClient(new MongoClientSettings()
             {

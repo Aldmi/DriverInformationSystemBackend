@@ -1,0 +1,15 @@
+﻿services:
+  webapi:
+    image: dis_backend
+    build:
+      context: .
+      dockerfile: WebApi/Dockerfile   
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    networks:
+      - mongodb_network 
+        
+networks:
+  mongodb_network:
+    name: mongodb_network
+    external: true
