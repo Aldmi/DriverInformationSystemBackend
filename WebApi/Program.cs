@@ -1,9 +1,14 @@
 using System.Security.Claims;
 using Application;
 using Application.Common.Auth;
+using Application.Interfaces;
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using WebApi.WebApiServices;
+
+Console.WriteLine(VersionService.GetVersion());//TODO: выводить в логере
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -102,6 +107,9 @@ app.Map("/authTest", [Authorize](HttpContext context)  =>
         Auth=false
     });
 });
+
+//End point - проверка работоспособности
+app.MapGet("_helth", () => VersionService.GetVersion());
 
 app.Run();
 

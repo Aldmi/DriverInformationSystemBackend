@@ -32,6 +32,23 @@ public class Train : Entity<Guid>
             Result.Failure<Train>("Вагонов не может быть больше 5") :
             new Train(name, locomotiveOne, locomotiveTwo, carriges);
     }
+
+
+    public Result<Guid> ChangeCarrigesSequence(IEnumerable<string> carrigeNumberSeq)
+    {
+        var newSeq = new List<Carrige>();
+        foreach (var carrigeNumber in carrigeNumberSeq)
+        {
+            var carrige=Carriges.FirstOrDefault(c => c.CarrigeNumber.IsEqual(carrigeNumber));
+            if (carrige == null)
+            {
+                return Result.Failure<Guid>($"{carrigeNumber} не найден в списке вагонов поезда {Id}");
+            }
+            newSeq.Add(carrige);
+        }
+        Carriges = newSeq.ToArray();
+        return Result.Success(Id);
+    }
 }
     
     

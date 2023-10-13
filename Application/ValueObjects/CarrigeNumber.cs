@@ -26,4 +26,6 @@ public class CarrigeNumber : ValueObject<CarrigeNumber>
             return hashCode;
         }
     }
+
+    public bool IsEqual(string uniqNumber) => uniqNumber == UniqNumber;
 }
