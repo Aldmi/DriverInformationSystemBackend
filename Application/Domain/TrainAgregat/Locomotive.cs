@@ -8,6 +8,9 @@ namespace Application.Domain.TrainAgregat;
 /// </summary>
 public class Locomotive : Entity<Guid>
 {
+    public const int CountIpCamera = 4;
+    
+    
     /// <summary>
     /// Уникальный номер вагона
     /// </summary>
@@ -16,45 +19,41 @@ public class Locomotive : Entity<Guid>
     /// <summary>
     /// 
     /// </summary>
-    public IpCamera IpCameraFirst { get; private set;}
-    
-    /// <summary>
-    /// 
-    /// </summary>
-    public IpCamera IpCameraSecond { get; private set;}
+    public IpCamera[] IpCameraArray { get; private set;}
     
     
     private Locomotive(
         CarrigeNumber carrigeNumber,
-        IpCamera ipCameraFirst,
-        IpCamera ipCameraSecond)
+        IpCamera[] ipCameraArray
+        )
     {
         CarrigeNumber = carrigeNumber;
-        IpCameraFirst = ipCameraFirst;
-        IpCameraSecond = ipCameraSecond;
+        IpCameraArray = ipCameraArray;
     }
 
 
-    public static Result<Locomotive> Create(CarrigeNumber carrigeNumber, IpCamera ipCameraFirst, IpCamera ipCameraSecond)
+    public static Result<Locomotive> Create(CarrigeNumber carrigeNumber, IpCamera[] ipCameraArray)
     {
-        var obj = new Locomotive(carrigeNumber, ipCameraFirst, ipCameraSecond);
+        if (ipCameraArray.Length != 4)
+        {
+            return Result.Failure<Locomotive>($"Ip камер в локомотиве должно быть {CountIpCamera}, а переданно {ipCameraArray.Length}");
+        }
+        var obj = new Locomotive(carrigeNumber, ipCameraArray);
         return obj;
     }
-    
-    
+
+
     /// <summary>
     /// Создать локомотив для поезда на базе уже добавленного локомотива в справочник.
     /// Указать Id этого локомотива.
     /// </summary>
     /// <param name="existingId"></param>
     /// <param name="carrigeNumber"></param>
-    /// <param name="seriaCarrigeNumber"></param>
-    /// <param name="ipCameraFirst"></param>
-    /// <param name="ipCameraSecond"></param>
+    /// <param name="ipCameraArray"></param>
     /// <returns></returns>
-    public static Result<Locomotive> CreateWithExistingGuid(Guid existingId, CarrigeNumber carrigeNumber, IpCamera ipCameraFirst, IpCamera ipCameraSecond)
+    public static Result<Locomotive> CreateWithExistingGuid(Guid existingId, CarrigeNumber carrigeNumber, IpCamera[] ipCameraArray)
     {
-        var obj = new Locomotive(carrigeNumber, ipCameraFirst, ipCameraSecond)
+        var obj = new Locomotive(carrigeNumber, ipCameraArray)
         {
             Id = existingId
         };

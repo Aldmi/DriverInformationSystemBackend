@@ -61,7 +61,7 @@ internal sealed class UpdateCarrigesListCommandHandler : IRequestHandler<UpdateC
         if (res.IsFailure)
             return res;
 
-        var id= await _trainRepository.AddOrReplace(train);
+        await _trainRepository.AddOrReplace(train);
         
         return res;
     }

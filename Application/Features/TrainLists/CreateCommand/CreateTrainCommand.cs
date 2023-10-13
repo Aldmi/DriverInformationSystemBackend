@@ -44,13 +44,11 @@ internal sealed class CreateTrainCommandHandler : IRequestHandler<CreateTrainCom
     {
         var locomotiveOne = Locomotive.Create(
             new CarrigeNumber(request.LocomotiveOne.UniqCarrigeNumber),
-            new IpCamera(request.LocomotiveOne.CameraFirstIpAddress),
-            new IpCamera(request.LocomotiveOne.CameraSecondIpAddress)).Value;
+            request.LocomotiveOne.CameraIpAddress.Select(ip => new IpCamera(ip)).ToArray()).Value;
             
         var locomotiveTwo = Locomotive.Create(
             new CarrigeNumber(request.LocomotiveTwo.UniqCarrigeNumber),
-            new IpCamera(request.LocomotiveTwo.CameraFirstIpAddress),
-            new IpCamera(request.LocomotiveTwo.CameraSecondIpAddress)).Value;
+            request.LocomotiveTwo.CameraIpAddress.Select(ip => new IpCamera(ip)).ToArray()).Value;
 
         var carriges = request.Carriges.Select(carrigeDto => Carrige.Create(
             new CarrigeNumber(carrigeDto.UniqCarrigeNumber),

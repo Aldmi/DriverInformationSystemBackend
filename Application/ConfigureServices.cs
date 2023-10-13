@@ -9,6 +9,7 @@ using Application.Infrastructure.Persistence.MongoDb;
 using Application.Infrastructure.Persistence.MongoDb.Repositories;
 using Application.InitWorkers;
 using Application.Interfaces;
+using Application.ValueObjects;
 using CSharpFunctionalExtensions;
 using FluentValidation;
 using MediatR;
@@ -101,6 +102,36 @@ public static class DependencyInjection
             cm.AutoMap();
             cm.MapIdMember(i => i.Id);
             cm.SetIsRootClass(true);
+        });
+        
+        BsonClassMap.RegisterClassMap<Train>(cm => {
+            cm.AutoMap();
+            cm.SetIgnoreExtraElements(true);
+        });
+        
+        BsonClassMap.RegisterClassMap<Locomotive>(cm => {
+            cm.AutoMap();
+            cm.SetIgnoreExtraElements(true);
+        });
+        
+        BsonClassMap.RegisterClassMap<IpCamera>(cm => {
+            cm.AutoMap();
+            cm.SetIgnoreExtraElements(true);
+        });
+
+        BsonClassMap.RegisterClassMap<Ticker>(cm => {
+            cm.AutoMap();
+            cm.SetIgnoreExtraElements(true);
+        });
+        
+        BsonClassMap.RegisterClassMap<RouteMetro>(cm => {
+            cm.AutoMap();
+            cm.SetIgnoreExtraElements(true);
+        });
+        
+        BsonClassMap.RegisterClassMap<Person>(cm => {
+            cm.AutoMap();
+            cm.SetIgnoreExtraElements(true);
         });
     }
 }

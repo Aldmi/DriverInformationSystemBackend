@@ -11,12 +11,22 @@ public static class TrainsFactory
             "Train 1",
              Locomotive.Create(
                 new CarrigeNumber("11111"),
-                new IpCamera("192.168.1.1"),
-                new IpCamera("192.168.1.2")).Value,
+                new []
+                {
+                    new IpCamera("192.168.1.1"),
+                    new IpCamera("192.168.1.2"),
+                    new IpCamera("192.168.1.3"),
+                    new IpCamera("192.168.1.4")
+                }).Value,
              Locomotive.Create(
                 new CarrigeNumber("22222"),
-                new IpCamera("192.168.1.10"),
-                new IpCamera("192.168.1.20")).Value,
+                new []
+                {
+                    new IpCamera("192.168.1.10"),
+                    new IpCamera("192.168.1.20"),
+                    new IpCamera("192.168.1.30"),
+                    new IpCamera("192.168.1.40")
+                }).Value,
              new []
              {
                  Carrige.Create(
@@ -45,14 +55,23 @@ public static class TrainsFactory
         Train.Create(
             "Train 2",
             Locomotive.Create(
-                new CarrigeNumber("55555"),
-                new IpCamera("192.168.1.1"),
-                new IpCamera("192.168.1.2")).Value,
-            
+                new CarrigeNumber("333"),
+                new []
+                {
+                    new IpCamera("192.168.1.11"),
+                    new IpCamera("192.168.1.21"),
+                    new IpCamera("192.168.1.31"),
+                    new IpCamera("192.168.1.41")
+                }).Value,
             Locomotive.Create(
-                new CarrigeNumber("66666"),
-                new IpCamera("192.168.1.10"),
-                new IpCamera("192.168.1.20")).Value,
+                new CarrigeNumber("444"),
+                new []
+                {
+                    new IpCamera("192.168.1.101"),
+                    new IpCamera("192.168.1.201"),
+                    new IpCamera("192.168.1.310"),
+                    new IpCamera("192.168.1.401")
+                }).Value,
              
             new []
             {
@@ -73,14 +92,23 @@ public static class TrainsFactory
         Train.Create(
             "Train 3",
             Locomotive.Create(
-                new CarrigeNumber("10152"),
-                new IpCamera("192.168.1.1"),
-                new IpCamera("192.168.1.2")).Value,
-            
+                new CarrigeNumber("5698"),
+                new []
+                {
+                    new IpCamera("192.168.1.11"),
+                    new IpCamera("192.168.1.21"),
+                    new IpCamera("192.168.1.31"),
+                    new IpCamera("192.168.1.41")
+                }).Value,
             Locomotive.Create(
-                new CarrigeNumber("698541"),
-                new IpCamera("192.168.1.10"),
-                new IpCamera("192.168.1.20")).Value,
+                new CarrigeNumber("8562"),
+                new []
+                {
+                    new IpCamera("192.168.1.101"),
+                    new IpCamera("192.168.1.201"),
+                    new IpCamera("192.168.1.310"),
+                    new IpCamera("192.168.1.401")
+                }).Value,
              
             new []
             {

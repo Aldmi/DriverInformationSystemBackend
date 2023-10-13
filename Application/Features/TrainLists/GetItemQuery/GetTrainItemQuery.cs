@@ -51,14 +51,12 @@ internal sealed class GetTrainItemHandler : IRequestHandler<GetTrainItemQuery, T
             LocomotiveOne = new LocomotiveItemVm()
             {
                 UniqCarrigeNumber = train.LocomotiveOne.CarrigeNumber.UniqNumber,
-                CameraFirstIpAddress = train.LocomotiveOne.IpCameraFirst.IpAddress,
-                CameraSecondIpAddress = train.LocomotiveOne.IpCameraSecond.IpAddress,
+                CameraIpAddress = train.LocomotiveOne.IpCameraArray.Select(ip=>ip.IpAddress).ToArray()
             },
             LocomotiveTwo = new LocomotiveItemVm()
             {
                 UniqCarrigeNumber = train.LocomotiveTwo.CarrigeNumber.UniqNumber,
-                CameraFirstIpAddress = train.LocomotiveTwo.IpCameraFirst.IpAddress,
-                CameraSecondIpAddress = train.LocomotiveTwo.IpCameraSecond.IpAddress,
+                CameraIpAddress = train.LocomotiveTwo.IpCameraArray.Select(ip=>ip.IpAddress).ToArray()
             },
             Carriges = train.Carriges.Select(carrige => new CarrigeItemVm()
             {

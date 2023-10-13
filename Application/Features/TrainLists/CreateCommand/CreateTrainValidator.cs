@@ -47,10 +47,10 @@ public class CreateTrainValidator : AbstractValidator<CreateTrainCommand>
             var carrigeNumbers = command.Carriges.Select(c => c.UniqCarrigeNumber).ToList();
             carrigeNumbers.Add(command.LocomotiveOne.UniqCarrigeNumber);
             carrigeNumbers.Add(command.LocomotiveTwo.UniqCarrigeNumber);
-            var dublivate= carrigeNumbers.FindDublicate();
-            if (dublivate.Any())
+            var dublicate= carrigeNumbers.FindDublicate();
+            if (dublicate.Any())
             {
-                context.AddFailure($"UniqCarrigeNumber {string.Join(", ", dublivate)} повторяются");
+                context.AddFailure($"UniqCarrigeNumber {string.Join(", ", dublicate)} повторяются");
             }
         });
 
@@ -80,11 +80,12 @@ public class CreateTrainValidator : AbstractValidator<CreateTrainCommand>
                 .NotNull().WithMessage("не может быть null")
                 .Length(4).WithMessage("lenght должно быть 4");
 
-            RuleFor(v => v.CameraFirstIpAddress)
-                .Matches(RegexStatic.IpAddress).WithMessage("Ip адресс задан не верно");
-        
-            RuleFor(v => v.CameraSecondIpAddress)
-                .Matches(RegexStatic.IpAddress).WithMessage("Ip адресс задан не верно");
+            RuleForEach(x => x.CameraIpAddress)
+                .ChildRules(ip =>
+                {
+                    ip.RuleFor(v => v)
+                        .Matches(RegexStatic.IpAddress).WithMessage("Ip адресс задан не верно");
+                });
         }
     }
 }
