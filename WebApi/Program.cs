@@ -4,6 +4,7 @@ using Application.Common.Auth;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using WebApi.MIddleware;
 using WebApi.WebApiServices;
 
 //Console.WriteLine(VersionService.GetVersion());//TODO: выводить в логере
@@ -80,7 +81,7 @@ else
     app.UseExceptionHandler("/error");
 }
 
-app.UseCors();
+app.ConfigureCustomExceptionMiddleware();
 
 app.UseHttpsRedirection();
 

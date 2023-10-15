@@ -22,4 +22,6 @@ public interface ITrainRepository
      Task<long> DeleteAsync(Expression<Func<Train, bool>> predicate);
      
      Task<bool> IsExistAsync(Expression<Func<Train, bool>> predicate);
+     
+     Task<bool> CheckUniqCarrigeNumberListAsync(IEnumerable<string> uniqCarrigeNumberList);
 }
