@@ -1,0 +1,193 @@
+2023-10-17 01:02:36.037 +07:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider"]
+2023-10-17 01:02:36.101 +07:00 [DBG] Hosting starting
+2023-10-17 01:02:36.134 +07:00 [INF] User profile is available. Using 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-17 01:02:40.263 +07:00 [INF] mongodb://root:pass12345@localhost:27017/DIS_Debug?authSource=admin&connectTimeoutMS=1000
+2023-10-17 01:02:40.446 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-451f32ef-2084-45bf-86d0-cb5dad281561.xml'.
+2023-10-17 01:02:40.454 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-54bf6c40-34c5-4b72-b2e1-eced8c80d4a4.xml'.
+2023-10-17 01:02:40.460 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-561b3e92-4c5d-460d-88bc-d197e344079d.xml'.
+2023-10-17 01:02:40.464 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-5bf3fa15-230e-4f3f-82a1-88a3ab7ddbc3.xml'.
+2023-10-17 01:02:40.469 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-68061fd7-cd69-4376-ad75-22ea27188b56.xml'.
+2023-10-17 01:02:40.473 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-6c5e5dc9-5ac8-4111-8540-f6cf87b6e54a.xml'.
+2023-10-17 01:02:40.478 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-76b0e1e0-5857-4227-8244-5524f77ff5f4.xml'.
+2023-10-17 01:02:40.482 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-b20206ea-86aa-444b-beef-8a1f589e7082.xml'.
+2023-10-17 01:02:40.491 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-beab1601-9c7e-4b64-ac2e-252829b7dc37.xml'.
+2023-10-17 01:02:40.497 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-df9aa255-ece3-4b6b-9b53-6b6a42ccde37.xml'.
+2023-10-17 01:02:40.503 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-dff23142-2b70-4f2e-ab07-2dc909010bfd.xml'.
+2023-10-17 01:02:40.509 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-fc523a26-b7b9-4a66-980b-d78b98afc345.xml'.
+2023-10-17 01:02:40.518 +07:00 [DBG] Found key {451f32ef-2084-45bf-86d0-cb5dad281561}.
+2023-10-17 01:02:40.531 +07:00 [DBG] Found key {54bf6c40-34c5-4b72-b2e1-eced8c80d4a4}.
+2023-10-17 01:02:40.533 +07:00 [DBG] Found key {561b3e92-4c5d-460d-88bc-d197e344079d}.
+2023-10-17 01:02:40.535 +07:00 [DBG] Found key {5bf3fa15-230e-4f3f-82a1-88a3ab7ddbc3}.
+2023-10-17 01:02:40.537 +07:00 [DBG] Found key {68061fd7-cd69-4376-ad75-22ea27188b56}.
+2023-10-17 01:02:40.539 +07:00 [DBG] Found key {6c5e5dc9-5ac8-4111-8540-f6cf87b6e54a}.
+2023-10-17 01:02:40.541 +07:00 [DBG] Found key {76b0e1e0-5857-4227-8244-5524f77ff5f4}.
+2023-10-17 01:02:40.543 +07:00 [DBG] Found key {b20206ea-86aa-444b-beef-8a1f589e7082}.
+2023-10-17 01:02:40.545 +07:00 [DBG] Found key {beab1601-9c7e-4b64-ac2e-252829b7dc37}.
+2023-10-17 01:02:40.548 +07:00 [DBG] Found key {df9aa255-ece3-4b6b-9b53-6b6a42ccde37}.
+2023-10-17 01:02:40.550 +07:00 [DBG] Found key {dff23142-2b70-4f2e-ab07-2dc909010bfd}.
+2023-10-17 01:02:40.552 +07:00 [DBG] Found key {fc523a26-b7b9-4a66-980b-d78b98afc345}.
+2023-10-17 01:02:40.559 +07:00 [DBG] Considering key {561b3e92-4c5d-460d-88bc-d197e344079d} with expiration date 2024-01-08 15:20:21Z as default key.
+2023-10-17 01:02:40.566 +07:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2023-10-17 01:02:40.571 +07:00 [DBG] Decrypting secret element using Windows DPAPI.
+2023-10-17 01:02:40.573 +07:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2023-10-17 01:02:40.581 +07:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2023-10-17 01:02:40.584 +07:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2023-10-17 01:02:40.586 +07:00 [DBG] Using key {561b3e92-4c5d-460d-88bc-d197e344079d} as the default key.
+2023-10-17 01:02:40.588 +07:00 [DBG] Key ring with default key {561b3e92-4c5d-460d-88bc-d197e344079d} was loaded during application startup.
+2023-10-17 01:02:40.734 +07:00 [INF] БД инициализирована Успешно
+2023-10-17 01:02:40.814 +07:00 [INF] Now listening on: http://localhost:5193
+2023-10-17 01:02:40.817 +07:00 [DBG] Loaded hosting startup assembly WebApi
+2023-10-17 01:02:40.819 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-17 01:02:40.820 +07:00 [INF] Hosting environment: Development
+2023-10-17 01:02:40.822 +07:00 [INF] Content root path: D:\Git\DriverInformationSystemBackend\WebApi
+2023-10-17 01:02:40.824 +07:00 [DBG] Hosting started
+2023-10-17 01:03:56.283 +07:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2023-10-17 01:03:56.360 +07:00 [DBG] Hosting starting
+2023-10-17 01:03:56.389 +07:00 [INF] User profile is available. Using 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-17 01:03:59.214 +07:00 [INF] mongodb://root:pass12345@localhost:27017/DIS_Debug?authSource=admin&connectTimeoutMS=1000
+2023-10-17 01:03:59.391 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-451f32ef-2084-45bf-86d0-cb5dad281561.xml'.
+2023-10-17 01:03:59.399 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-54bf6c40-34c5-4b72-b2e1-eced8c80d4a4.xml'.
+2023-10-17 01:03:59.403 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-561b3e92-4c5d-460d-88bc-d197e344079d.xml'.
+2023-10-17 01:03:59.407 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-5bf3fa15-230e-4f3f-82a1-88a3ab7ddbc3.xml'.
+2023-10-17 01:03:59.410 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-68061fd7-cd69-4376-ad75-22ea27188b56.xml'.
+2023-10-17 01:03:59.412 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-6c5e5dc9-5ac8-4111-8540-f6cf87b6e54a.xml'.
+2023-10-17 01:03:59.415 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-76b0e1e0-5857-4227-8244-5524f77ff5f4.xml'.
+2023-10-17 01:03:59.418 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-b20206ea-86aa-444b-beef-8a1f589e7082.xml'.
+2023-10-17 01:03:59.422 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-beab1601-9c7e-4b64-ac2e-252829b7dc37.xml'.
+2023-10-17 01:03:59.425 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-df9aa255-ece3-4b6b-9b53-6b6a42ccde37.xml'.
+2023-10-17 01:03:59.428 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-dff23142-2b70-4f2e-ab07-2dc909010bfd.xml'.
+2023-10-17 01:03:59.430 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-fc523a26-b7b9-4a66-980b-d78b98afc345.xml'.
+2023-10-17 01:03:59.436 +07:00 [DBG] Found key {451f32ef-2084-45bf-86d0-cb5dad281561}.
+2023-10-17 01:03:59.442 +07:00 [DBG] Found key {54bf6c40-34c5-4b72-b2e1-eced8c80d4a4}.
+2023-10-17 01:03:59.443 +07:00 [DBG] Found key {561b3e92-4c5d-460d-88bc-d197e344079d}.
+2023-10-17 01:03:59.445 +07:00 [DBG] Found key {5bf3fa15-230e-4f3f-82a1-88a3ab7ddbc3}.
+2023-10-17 01:03:59.447 +07:00 [DBG] Found key {68061fd7-cd69-4376-ad75-22ea27188b56}.
+2023-10-17 01:03:59.449 +07:00 [DBG] Found key {6c5e5dc9-5ac8-4111-8540-f6cf87b6e54a}.
+2023-10-17 01:03:59.452 +07:00 [DBG] Found key {76b0e1e0-5857-4227-8244-5524f77ff5f4}.
+2023-10-17 01:03:59.456 +07:00 [DBG] Found key {b20206ea-86aa-444b-beef-8a1f589e7082}.
+2023-10-17 01:03:59.458 +07:00 [DBG] Found key {beab1601-9c7e-4b64-ac2e-252829b7dc37}.
+2023-10-17 01:03:59.460 +07:00 [DBG] Found key {df9aa255-ece3-4b6b-9b53-6b6a42ccde37}.
+2023-10-17 01:03:59.462 +07:00 [DBG] Found key {dff23142-2b70-4f2e-ab07-2dc909010bfd}.
+2023-10-17 01:03:59.464 +07:00 [DBG] Found key {fc523a26-b7b9-4a66-980b-d78b98afc345}.
+2023-10-17 01:03:59.477 +07:00 [DBG] Considering key {561b3e92-4c5d-460d-88bc-d197e344079d} with expiration date 2024-01-08 15:20:21Z as default key.
+2023-10-17 01:03:59.481 +07:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2023-10-17 01:03:59.487 +07:00 [DBG] Decrypting secret element using Windows DPAPI.
+2023-10-17 01:03:59.491 +07:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2023-10-17 01:03:59.499 +07:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2023-10-17 01:03:59.503 +07:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2023-10-17 01:03:59.507 +07:00 [DBG] Using key {561b3e92-4c5d-460d-88bc-d197e344079d} as the default key.
+2023-10-17 01:03:59.509 +07:00 [DBG] Key ring with default key {561b3e92-4c5d-460d-88bc-d197e344079d} was loaded during application startup.
+2023-10-17 01:03:59.644 +07:00 [INF] БД инициализирована Успешно
+2023-10-17 01:03:59.693 +07:00 [INF] Now listening on: http://localhost:5193
+2023-10-17 01:03:59.695 +07:00 [DBG] Loaded hosting startup assembly WebApi
+2023-10-17 01:03:59.698 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-17 01:03:59.699 +07:00 [INF] Hosting environment: Development
+2023-10-17 01:03:59.702 +07:00 [INF] Content root path: D:\Git\DriverInformationSystemBackend\WebApi
+2023-10-17 01:03:59.703 +07:00 [DBG] Hosting started
+2023-10-17 01:04:47.305 +07:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2023-10-17 01:04:47.362 +07:00 [DBG] Hosting starting
+2023-10-17 01:04:47.390 +07:00 [INF] User profile is available. Using 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-17 01:04:48.560 +07:00 [INF] mongodb://root:pass12345@localhost:27017/DIS_Debug?authSource=admin&connectTimeoutMS=1000
+2023-10-17 01:04:48.736 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-451f32ef-2084-45bf-86d0-cb5dad281561.xml'.
+2023-10-17 01:04:48.743 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-54bf6c40-34c5-4b72-b2e1-eced8c80d4a4.xml'.
+2023-10-17 01:04:48.746 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-561b3e92-4c5d-460d-88bc-d197e344079d.xml'.
+2023-10-17 01:04:48.749 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-5bf3fa15-230e-4f3f-82a1-88a3ab7ddbc3.xml'.
+2023-10-17 01:04:48.752 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-68061fd7-cd69-4376-ad75-22ea27188b56.xml'.
+2023-10-17 01:04:48.755 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-6c5e5dc9-5ac8-4111-8540-f6cf87b6e54a.xml'.
+2023-10-17 01:04:48.757 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-76b0e1e0-5857-4227-8244-5524f77ff5f4.xml'.
+2023-10-17 01:04:48.762 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-b20206ea-86aa-444b-beef-8a1f589e7082.xml'.
+2023-10-17 01:04:48.765 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-beab1601-9c7e-4b64-ac2e-252829b7dc37.xml'.
+2023-10-17 01:04:48.768 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-df9aa255-ece3-4b6b-9b53-6b6a42ccde37.xml'.
+2023-10-17 01:04:48.771 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-dff23142-2b70-4f2e-ab07-2dc909010bfd.xml'.
+2023-10-17 01:04:48.779 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-fc523a26-b7b9-4a66-980b-d78b98afc345.xml'.
+2023-10-17 01:04:48.786 +07:00 [DBG] Found key {451f32ef-2084-45bf-86d0-cb5dad281561}.
+2023-10-17 01:04:48.791 +07:00 [DBG] Found key {54bf6c40-34c5-4b72-b2e1-eced8c80d4a4}.
+2023-10-17 01:04:48.793 +07:00 [DBG] Found key {561b3e92-4c5d-460d-88bc-d197e344079d}.
+2023-10-17 01:04:48.795 +07:00 [DBG] Found key {5bf3fa15-230e-4f3f-82a1-88a3ab7ddbc3}.
+2023-10-17 01:04:48.797 +07:00 [DBG] Found key {68061fd7-cd69-4376-ad75-22ea27188b56}.
+2023-10-17 01:04:48.799 +07:00 [DBG] Found key {6c5e5dc9-5ac8-4111-8540-f6cf87b6e54a}.
+2023-10-17 01:04:48.803 +07:00 [DBG] Found key {76b0e1e0-5857-4227-8244-5524f77ff5f4}.
+2023-10-17 01:04:48.806 +07:00 [DBG] Found key {b20206ea-86aa-444b-beef-8a1f589e7082}.
+2023-10-17 01:04:48.808 +07:00 [DBG] Found key {beab1601-9c7e-4b64-ac2e-252829b7dc37}.
+2023-10-17 01:04:48.810 +07:00 [DBG] Found key {df9aa255-ece3-4b6b-9b53-6b6a42ccde37}.
+2023-10-17 01:04:48.812 +07:00 [DBG] Found key {dff23142-2b70-4f2e-ab07-2dc909010bfd}.
+2023-10-17 01:04:48.814 +07:00 [DBG] Found key {fc523a26-b7b9-4a66-980b-d78b98afc345}.
+2023-10-17 01:04:48.828 +07:00 [DBG] Considering key {561b3e92-4c5d-460d-88bc-d197e344079d} with expiration date 2024-01-08 15:20:21Z as default key.
+2023-10-17 01:04:48.832 +07:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2023-10-17 01:04:48.838 +07:00 [DBG] Decrypting secret element using Windows DPAPI.
+2023-10-17 01:04:48.840 +07:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2023-10-17 01:04:48.845 +07:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2023-10-17 01:04:48.848 +07:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2023-10-17 01:04:48.851 +07:00 [DBG] Using key {561b3e92-4c5d-460d-88bc-d197e344079d} as the default key.
+2023-10-17 01:04:48.854 +07:00 [DBG] Key ring with default key {561b3e92-4c5d-460d-88bc-d197e344079d} was loaded during application startup.
+2023-10-17 01:04:48.988 +07:00 [INF] БД инициализирована Успешно
+2023-10-17 01:04:49.034 +07:00 [INF] Now listening on: http://localhost:5193
+2023-10-17 01:04:49.040 +07:00 [DBG] Loaded hosting startup assembly WebApi
+2023-10-17 01:04:49.042 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-17 01:04:49.043 +07:00 [INF] Hosting environment: Development
+2023-10-17 01:04:49.045 +07:00 [INF] Content root path: D:\Git\DriverInformationSystemBackend\WebApi
+2023-10-17 01:04:49.047 +07:00 [DBG] Hosting started
+2023-10-17 01:05:14.790 +07:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2023-10-17 01:05:14.848 +07:00 [DBG] Hosting starting
+2023-10-17 01:05:14.877 +07:00 [INF] User profile is available. Using 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-17 01:05:17.891 +07:00 [INF] mongodb://root:pass12345@localhost:27017/DIS_Debug?authSource=admin&connectTimeoutMS=1000
+2023-10-17 01:05:18.070 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-451f32ef-2084-45bf-86d0-cb5dad281561.xml'.
+2023-10-17 01:05:18.081 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-54bf6c40-34c5-4b72-b2e1-eced8c80d4a4.xml'.
+2023-10-17 01:05:18.086 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-561b3e92-4c5d-460d-88bc-d197e344079d.xml'.
+2023-10-17 01:05:18.092 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-5bf3fa15-230e-4f3f-82a1-88a3ab7ddbc3.xml'.
+2023-10-17 01:05:18.100 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-68061fd7-cd69-4376-ad75-22ea27188b56.xml'.
+2023-10-17 01:05:18.104 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-6c5e5dc9-5ac8-4111-8540-f6cf87b6e54a.xml'.
+2023-10-17 01:05:18.109 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-76b0e1e0-5857-4227-8244-5524f77ff5f4.xml'.
+2023-10-17 01:05:18.117 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-b20206ea-86aa-444b-beef-8a1f589e7082.xml'.
+2023-10-17 01:05:18.124 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-beab1601-9c7e-4b64-ac2e-252829b7dc37.xml'.
+2023-10-17 01:05:18.131 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-df9aa255-ece3-4b6b-9b53-6b6a42ccde37.xml'.
+2023-10-17 01:05:18.138 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-dff23142-2b70-4f2e-ab07-2dc909010bfd.xml'.
+2023-10-17 01:05:18.145 +07:00 [DBG] Reading data from file 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys\key-fc523a26-b7b9-4a66-980b-d78b98afc345.xml'.
+2023-10-17 01:05:18.161 +07:00 [DBG] Found key {451f32ef-2084-45bf-86d0-cb5dad281561}.
+2023-10-17 01:05:18.166 +07:00 [DBG] Found key {54bf6c40-34c5-4b72-b2e1-eced8c80d4a4}.
+2023-10-17 01:05:18.168 +07:00 [DBG] Found key {561b3e92-4c5d-460d-88bc-d197e344079d}.
+2023-10-17 01:05:18.171 +07:00 [DBG] Found key {5bf3fa15-230e-4f3f-82a1-88a3ab7ddbc3}.
+2023-10-17 01:05:18.175 +07:00 [DBG] Found key {68061fd7-cd69-4376-ad75-22ea27188b56}.
+2023-10-17 01:05:18.179 +07:00 [DBG] Found key {6c5e5dc9-5ac8-4111-8540-f6cf87b6e54a}.
+2023-10-17 01:05:18.183 +07:00 [DBG] Found key {76b0e1e0-5857-4227-8244-5524f77ff5f4}.
+2023-10-17 01:05:18.188 +07:00 [DBG] Found key {b20206ea-86aa-444b-beef-8a1f589e7082}.
+2023-10-17 01:05:18.192 +07:00 [DBG] Found key {beab1601-9c7e-4b64-ac2e-252829b7dc37}.
+2023-10-17 01:05:18.196 +07:00 [DBG] Found key {df9aa255-ece3-4b6b-9b53-6b6a42ccde37}.
+2023-10-17 01:05:18.199 +07:00 [DBG] Found key {dff23142-2b70-4f2e-ab07-2dc909010bfd}.
+2023-10-17 01:05:18.204 +07:00 [DBG] Found key {fc523a26-b7b9-4a66-980b-d78b98afc345}.
+2023-10-17 01:05:18.214 +07:00 [DBG] Considering key {561b3e92-4c5d-460d-88bc-d197e344079d} with expiration date 2024-01-08 15:20:21Z as default key.
+2023-10-17 01:05:18.223 +07:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2023-10-17 01:05:18.232 +07:00 [DBG] Decrypting secret element using Windows DPAPI.
+2023-10-17 01:05:18.238 +07:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=7.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2023-10-17 01:05:18.249 +07:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2023-10-17 01:05:18.252 +07:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2023-10-17 01:05:18.256 +07:00 [DBG] Using key {561b3e92-4c5d-460d-88bc-d197e344079d} as the default key.
+2023-10-17 01:05:18.259 +07:00 [DBG] Key ring with default key {561b3e92-4c5d-460d-88bc-d197e344079d} was loaded during application startup.
+2023-10-17 01:05:18.397 +07:00 [INF] БД инициализирована Успешно
+2023-10-17 01:05:18.455 +07:00 [INF] Now listening on: http://localhost:5193
+2023-10-17 01:05:18.458 +07:00 [DBG] Loaded hosting startup assembly WebApi
+2023-10-17 01:05:18.462 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-17 01:05:18.464 +07:00 [INF] Hosting environment: Development
+2023-10-17 01:05:18.469 +07:00 [INF] Content root path: D:\Git\DriverInformationSystemBackend\WebApi
+2023-10-17 01:05:18.473 +07:00 [DBG] Hosting started
+2023-10-17 01:05:59.316 +07:00 [INF] User profile is available. Using 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-17 01:05:59.325 +07:00 [INF] mongodb://root:pass12345@localhost:27017/DIS_Debug?authSource=admin&connectTimeoutMS=1000
+2023-10-17 01:05:59.663 +07:00 [INF] БД инициализирована Успешно
+2023-10-17 01:05:59.709 +07:00 [INF] Now listening on: http://localhost:5193
+2023-10-17 01:05:59.714 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-17 01:05:59.715 +07:00 [INF] Hosting environment: Development
+2023-10-17 01:05:59.717 +07:00 [INF] Content root path: D:\Git\DriverInformationSystemBackend\WebApi
+2023-10-17 01:07:42.650 +07:00 [INF] User profile is available. Using 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-17 01:07:42.659 +07:00 [INF] mongodb://root:pass12345@localhost:27017/DIS_Debug?authSource=admin&connectTimeoutMS=1000
+2023-10-17 01:07:43.058 +07:00 [INF] БД инициализирована Успешно
+2023-10-17 01:07:43.107 +07:00 [INF] Now listening on: http://localhost:5193
+2023-10-17 01:07:43.108 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-17 01:07:43.108 +07:00 [INF] Hosting environment: Development
+2023-10-17 01:07:43.109 +07:00 [INF] Content root path: D:\Git\DriverInformationSystemBackend\WebApi
+2023-10-17 01:11:06.433 +07:00 [INF] User profile is available. Using 'C:\Users\Aldmi\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-17 01:11:06.441 +07:00 [INF] mongodb://root:pass12345@localhost:27017/DIS_Debug?authSource=admin&connectTimeoutMS=1000
+2023-10-17 01:11:06.780 +07:00 [INF] БД инициализирована Успешно
+2023-10-17 01:11:06.860 +07:00 [INF] Now listening on: http://localhost:5193
+2023-10-17 01:11:06.861 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-17 01:11:06.862 +07:00 [INF] Hosting environment: Development
+2023-10-17 01:11:06.863 +07:00 [INF] Content root path: D:\Git\DriverInformationSystemBackend\WebApi

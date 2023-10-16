@@ -18,6 +18,7 @@ using MongoDB.Driver;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using MongoDB.Bson.Serialization;
+using ILogger = Serilog.ILogger;
 
 namespace Application;
 
@@ -48,7 +49,7 @@ public static class DependencyInjection
         services.AddSingleton<IMongoDatabase>(_ =>
         {
             var connectionString = configuration.GetConnectionString("Mongodb");
-            logger.LogInformation("{DbConnectionString}", connectionString);
+            logger.Information("{DbConnectionString}", connectionString);
             var url = MongoUrl.Create(connectionString);
             var client = new MongoClient(new MongoClientSettings()
             {
