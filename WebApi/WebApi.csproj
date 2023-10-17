@@ -26,7 +26,27 @@
       <Content Include="..\.dockerignore">
         <Link>.dockerignore</Link>
       </Content>
+      <Content Remove="Logs\**" />
     </ItemGroup>
+
+
+    <ItemGroup>
+      <Compile Remove="Logs\**" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Logs\**" />
+    </ItemGroup>
+
+
+    <ItemGroup>
+      <None Remove="Logs\**" />
+    </ItemGroup>
+
+
+
+
 
 
 

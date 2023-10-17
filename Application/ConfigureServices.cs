@@ -41,15 +41,14 @@ public static class DependencyInjection
         return services;
     }
 
-    public static IServiceCollection AddPersistence(this IServiceCollection services, IConfiguration configuration, ILogger logger)
+    public static IServiceCollection AddPersistence(this IServiceCollection services, string connectionString, ILogger logger)
     {
         BsonMapperConfigurate();
         
         var maxConnectionPoolSize = 800;
         services.AddSingleton<IMongoDatabase>(_ =>
         {
-            var connectionString = configuration.GetConnectionString("Mongodb");
-            logger.Information("{DbConnectionString}", connectionString);
+            logger.Debug("{DbConnectionString}", connectionString);
             var url = MongoUrl.Create(connectionString);
             var client = new MongoClient(new MongoClientSettings()
             {

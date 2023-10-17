@@ -1,28 +1,34 @@
 using System.Security.Claims;
+using System.Text;
 using Application;
 using Application.Common.Auth;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using WebApi.Extensions;
 using WebApi.MIddleware;
+using WebApi.Settings;
 using WebApi.WebApiServices;
-using Serilog;
-
 
 Log.Logger = new LoggerConfiguration()
     .WriteTo.Console()
     .CreateBootstrapLogger();
+Log.Information("{Version}", VersionService.GetVersion());
 
 try
 {
-    Log.Information("{Version}", VersionService.GetVersion());
-    
+    Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
     var builder = WebApplication.CreateBuilder(args);
+    var appConfiguration = builder.Configuration;
+    var env = builder.Environment;
 
-    builder.Host.UseSerilog((context, services, configuration) => configuration
-        .ReadFrom.Configuration(context.Configuration)
-        .ReadFrom.Services(services));
+    //Serilog------------------------------------------------------------------------------------------------
+    var loggerSettings = SettingsFactory.GetLoggerConfig(env, appConfiguration);
+    Log.Information("{LoggerSettings}", loggerSettings!.ToString());
+    builder.Services.AddSerilogServices(loggerSettings, env);
+    builder.Host.UseSerilog();
+    
     
     // Add services to the container.
     builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
@@ -66,7 +72,7 @@ try
     builder.Services.AddHttpContextAccessor();
 
     builder.Services.AddApplication(Log.Logger);
-    builder.Services.AddPersistence(builder.Configuration, Log.Logger);
+    builder.Services.AddPersistence(SettingsFactory.GetDbConnectionString(env, appConfiguration), Log.Logger);
 
 
     var app = builder.Build();
