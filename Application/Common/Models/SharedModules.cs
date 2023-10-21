@@ -2,6 +2,6 @@
 
 public enum Gender
 {
-    Mail,
-    Famail
+    Male,
+    Famale
 }

@@ -1,5 +1,6 @@
 using System.Security.Claims;
 using System.Text;
+using System.Text.Json.Serialization;
 using Application;
 using Application.Common.Auth;
 using Microsoft.AspNetCore.Authorization;
@@ -55,7 +56,9 @@ try
         });
     builder.Services.AddAuthorization();  
 
-    builder.Services.AddControllers();
+    builder.Services.AddControllers().AddJsonOptions(opt => {
+        opt.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+    });
     builder.Services.AddEndpointsApiExplorer();
 
     builder.Services.AddSwaggerGen(c => c.SwaggerDoc("v1", new OpenApiInfo { Title = "VSA Todo API", Version = "v1" }));

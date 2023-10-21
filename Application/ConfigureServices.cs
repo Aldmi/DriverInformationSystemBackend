@@ -76,7 +76,7 @@ public static class DependencyInjection
         
         services.AddSingleton<IMongoCollection<RouteMetro>>(provider => {
             var db= provider.GetRequiredService<IMongoDatabase>();
-            return db.GetCollection<RouteMetro>(MongoTrainRepository.CollectionName);
+            return db.GetCollection<RouteMetro>(MongoRouteMetroRepository.CollectionName);
         });
         services.AddSingleton<IRouteMetroRepository, MongoRouteMetroRepository>();
         
