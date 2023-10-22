@@ -31,7 +31,6 @@ public class ExceptionMiddleware
     {
         HttpStatusCode code = 0;
         string result = "";
-        
         switch (ex)
         {
             case ValidationException validationException:
@@ -41,13 +40,16 @@ public class ExceptionMiddleware
             
             case NotFoundException notFoundException:
                 code = HttpStatusCode.NotFound;
+                result = "Не найден элемент";
                 break;
             
             case DeleteCommandException deleteCommandException:
                 code = HttpStatusCode.Conflict;
+                result = "Ошибка удаления элемента";
                 break;
             
             default:
+                result = "Неизвестное исключение";
                 _logger.LogError($"Неизвестное исключение {ex}");
                 break;
         }

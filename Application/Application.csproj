@@ -23,9 +23,6 @@
     
     <ItemGroup>
       <Folder Include="Features\Persones\GetItemQuery\" />
-      <Folder Include="Features\RouteMetroList\DeleteCommand\" />
-      <Folder Include="Features\RouteMetroList\GetItemQuery\" />
-      <Folder Include="Features\RouteMetroList\GetListQuery\" />
     </ItemGroup>
 
 </Project>
