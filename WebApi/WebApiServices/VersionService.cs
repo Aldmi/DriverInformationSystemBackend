@@ -6,10 +6,10 @@ public static class VersionService
     {
         var aboutProgram = new
         {
-            Ver= "1.0.2",
-            Description= "- Add RouteMetroList CRUD Features",
-            Commit= "508de926197ff590a2f9442d550f944f9256f2e9 [508de92]",
-            Date = "22 октября 2023г."
+            Ver= "1.0.3",
+            Description= "Add UpdateCommand to Train",
+            Commit= "258acd5f05b0f17c2349bb873b045cdc80cf53a2 [258acd5]",
+            Date = "24 октября 2023г."
         };
        return $"Ver: '{aboutProgram.Ver}'\tDate: '{aboutProgram.Date}'\tDescription: '{aboutProgram.Description}'\t Git: '{aboutProgram.Commit}'\t";
     }

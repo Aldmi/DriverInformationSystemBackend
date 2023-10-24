@@ -172,6 +172,65 @@
 ---
 
 
+### Обновить поезд 
+### `PUT: http://ip:port/api/trains`
+
+Тело запроса:
+
+    {
+        "IdTrain": "2c674e55-1188-4ec3-b871-4ab314c897ed",
+        "name": "Train 100",
+        "locomotiveOne": {
+            "uniqCarrigeNumber": "1111",
+            "CameraIpAddress": [
+                "192.168.1.1",
+                "192.168.1.2",
+                "192.168.1.3",
+                "192.168.1.4"
+                ]
+        },
+        "locomotiveTwo": {
+            "uniqCarrigeNumber": "2222",
+            "CameraIpAddress": [
+                "192.168.1.10",
+                "192.168.1.20",
+                "192.168.1.30",
+                "192.168.1.40"
+                ]
+        },
+        "carriges": [
+            {
+                "uniqCarrigeNumber": "3333",
+                "cameraFirstIpAddress": "192.168.1.10",
+                "cameraSecondIpAddress": "192.168.1.11"
+            },
+            {
+                "uniqCarrigeNumber": "4444",
+                "cameraFirstIpAddress": "192.168.1.12",
+                "cameraSecondIpAddress": "192.168.1.13"
+            },
+            {
+                "uniqCarrigeNumber": "5555",
+                "cameraFirstIpAddress": "192.168.1.14",
+                "cameraSecondIpAddress": "192.168.1.15"
+            },
+            {
+                "uniqCarrigeNumber": "6666",
+                "cameraFirstIpAddress": "192.168.1.16",
+                "cameraSecondIpAddress": "192.168.1.17"
+            }
+        ]
+    }
+
+Ответ:
+Update Ok
+
+### Status: 200 Ok
+---
+
+
+
+
 ### Удалить поезд по id
 
 ### `DELETE: http://ip:port/api/trains{id}`
