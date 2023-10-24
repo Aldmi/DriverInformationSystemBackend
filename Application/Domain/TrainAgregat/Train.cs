@@ -32,6 +32,20 @@ public class Train : Entity<Guid>
             Result.Failure<Train>("Вагонов не может быть больше 5") :
             new Train(name, locomotiveOne, locomotiveTwo, carriges);
     }
+    
+    
+    public static Result<Train> CreateWithId(
+        Guid id,
+        string? name,
+        Locomotive locomotiveOne,
+        Locomotive locomotiveTwo,
+        Carrige[] carriges
+    )
+    {
+        return carriges.Length > 5 ?
+            Result.Failure<Train>("Вагонов не может быть больше 5") :
+            new Train(name, locomotiveOne, locomotiveTwo, carriges){Id = id};
+    }
 
 
     public Result<Guid> ChangeCarrigesSequence(IEnumerable<string> carrigeNumberSeq)
