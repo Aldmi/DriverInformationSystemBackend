@@ -49,7 +49,7 @@ public class ExceptionMiddleware
                 break;
             
             default:
-                result = "Неизвестное исключение";
+                result = $"Неизвестное исключение {ex.Message}";
                 _logger.LogError($"Неизвестное исключение {ex}");
                 break;
         }

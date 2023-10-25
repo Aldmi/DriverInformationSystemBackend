@@ -14,6 +14,7 @@ public static class RoutesMetroFactory
             new []
             {
                 new UowAlert(
+                    "Посадка на Заельцовской",
                     new SoundMessage[]
                     {
                         new("сторожно двери закрываются след. станция", "./assets/sounds/013 ОДЗСС 2.wav"),
@@ -23,6 +24,7 @@ public static class RoutesMetroFactory
                     new Ticker("Следующая станция Гагаринская")),
                 
                 new UowAlert(
+                    "Посадка на Гагаринской",
                     new SoundMessage[]
                     {
                         new("осторожно двери закрываются след. станция", "./assets/sounds/013 ОДЗСС 2.wav"),

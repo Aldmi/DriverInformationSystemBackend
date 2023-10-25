@@ -73,7 +73,67 @@ public class UpdateTrainValidator : AbstractValidator<UpdateTrainCommand>
             if (!isExist)
             {
                 context.AddFailure(new ValidationFailure("IdTrain отсутствует в БД", $"{obj.IdTrain}"));
+                return;
             }
+            
+            var carrigeNumberList = obj.Carriges.Select(c => c.UniqCarrigeNumber).ToList();
+            carrigeNumberList.Add(obj.LocomotiveOne.UniqCarrigeNumber);
+            carrigeNumberList.Add(obj.LocomotiveTwo.UniqCarrigeNumber);
+            
+            var ipAddressList = obj.LocomotiveOne.CameraIpAddress.ToList();
+            ipAddressList.AddRange(obj.LocomotiveTwo.CameraIpAddress);
+            ipAddressList.AddRange(obj.Carriges.Select(c=>c.CameraFirstIpAddress));
+            ipAddressList.AddRange(obj.Carriges.Select(c=>c.CameraSecondIpAddress));
+            
+            var allTrains = await trainRepository.ListAsync(train =>train.Id != obj.IdTrain); //Все остальные поезда из БД
+            foreach (var train in allTrains)
+            {
+                //Уникальность номера локомотива 1 
+                if (carrigeNumberList.Contains(train.LocomotiveOne.CarrigeNumber.UniqNumber))
+                {
+                    context.AddFailure(new ValidationFailure("uniqCarrigeNumber", $"{train.Id} LocomotiveOne.uniqCarrigeNumber {train.LocomotiveOne.CarrigeNumber.UniqNumber}"));
+                }
+                //Уникальность номера локомотива 2 
+                if (carrigeNumberList.Contains(train.LocomotiveTwo.CarrigeNumber.UniqNumber))
+                {
+                    context.AddFailure(new ValidationFailure("uniqCarrigeNumber", $"{train.Id} LocomotiveTwo.uniqCarrigeNumber {train.LocomotiveTwo.CarrigeNumber.UniqNumber}"));
+                }
+                //Уникальность номера вагонов
+                var intersectCarrigesUniqNumber = carrigeNumberList.Intersect(train.Carriges.Select(c => c.CarrigeNumber.UniqNumber)).ToList();
+                if (intersectCarrigesUniqNumber.Any())
+                {
+                    context.AddFailure(new ValidationFailure("uniqCarrigeNumber", $"{train.Id} carriges {string.Join(", ", intersectCarrigesUniqNumber)} повторяются"));
+                }
+                
+                //Уникальность locomotiveOne.CameraIpAddress
+                var locomotiveOneCameraIpAddress = ipAddressList.Intersect(train.LocomotiveOne.IpCameraArray.Select(ip=>ip.IpAddress)).ToList();
+                if (locomotiveOneCameraIpAddress.Any())
+                {
+                    context.AddFailure(new ValidationFailure("ip_Address", $"{train.Id} LocomotiveOne.CameraIpAddress {string.Join(", ", locomotiveOneCameraIpAddress)} повторяются"));
+                }
+                
+                //Уникальность locomotiveTwo.CameraIpAddress
+                var locomotiveTwoCameraIpAddress = ipAddressList.Intersect(train.LocomotiveTwo.IpCameraArray.Select(ip=>ip.IpAddress)).ToList();
+                if (locomotiveTwoCameraIpAddress.Any())
+                {
+                    context.AddFailure(new ValidationFailure("ip_Address", $"{train.Id} locomotiveTwo.CameraIpAddress {string.Join(", ", locomotiveTwoCameraIpAddress)} повторяются"));
+                }
+                
+                //Уникальность carriges.cameraFirstIpAddress
+                var carrigesCameraFirstIpAddress= ipAddressList.Intersect(train.Carriges.Select(c=>c.IpCameraFirst.IpAddress)).ToList();
+                if (carrigesCameraFirstIpAddress.Any())
+                {
+                    context.AddFailure(new ValidationFailure("ip_Address", $"{train.Id} carriges.cameraFirstIpAddress {string.Join(", ", carrigesCameraFirstIpAddress)} повторяются"));
+                }
+                
+                //Уникальность carriges.cameraSecondIpAddress
+                var carrigesCameraSecondIpAddress= ipAddressList.Intersect(train.Carriges.Select(c=>c.IpCameraSecond.IpAddress)).ToList();
+                if (carrigesCameraSecondIpAddress.Any())
+                {
+                    context.AddFailure(new ValidationFailure("ip_Address", $"{train.Id} carriges.cameraSecondIpAddress {string.Join(", ", carrigesCameraSecondIpAddress)} повторяются"));
+                }
+            }
+            
         });
     }
 

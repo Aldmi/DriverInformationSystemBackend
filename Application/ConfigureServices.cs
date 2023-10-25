@@ -131,6 +131,11 @@ public static class DependencyInjection
             cm.SetIgnoreExtraElements(true);
         });
         
+        BsonClassMap.RegisterClassMap<UowAlert>(cm => {
+            cm.AutoMap();
+            cm.SetIgnoreExtraElements(true);
+        });
+        
         BsonClassMap.RegisterClassMap<Person>(cm => {
             cm.AutoMap();
             cm.SetIgnoreExtraElements(true);

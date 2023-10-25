@@ -53,7 +53,7 @@ internal sealed class GetRouteMetroItemHandler : IRequestHandler<GetRouteMetroIt
             {
                 var soundMessagesVm = uow.SoundMessages.Select(sm => new SoundMessageVm {Name = sm.Name, Url = sm.Url}).ToArray();
                 var tickerVm = new TickerVm {Message = uow.Ticker.Message};
-                return new UowAlertVm{SoundMessages = soundMessagesVm, Ticker = tickerVm};
+                return new UowAlertVm{Description = uow.Description, SoundMessages = soundMessagesVm, Ticker = tickerVm};
             }).ToArray()
         };
 

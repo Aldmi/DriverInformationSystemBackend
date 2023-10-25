@@ -12,6 +12,7 @@ public class RouteMetroVm
 
 public class UowAlertVm
 {
+    public string Description { get; init; }
     public TickerVm Ticker { get; init; }
     public SoundMessageVm[] SoundMessages { get; init; }
 }

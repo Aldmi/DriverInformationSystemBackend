@@ -1,6 +1,4 @@
-﻿using Application.Common.Models;
-using Application.ValueObjects;
-using CSharpFunctionalExtensions;
+﻿using Application.ValueObjects;
 
 namespace Application.Domain.RouteMetroAgregat;
 
@@ -10,12 +8,14 @@ namespace Application.Domain.RouteMetroAgregat;
 /// </summary>
 public class UowAlert
 {
+    public string Description { get; private set; }
     public IReadOnlyList<SoundMessage> SoundMessages { get; private set;}
     public Ticker Ticker { get; private set;}
     
     
-    public UowAlert(IReadOnlyList<SoundMessage> soundMessages, Ticker ticker)
+    public UowAlert(string description, IReadOnlyList<SoundMessage> soundMessages, Ticker ticker)
     {
+        Description = description;
         SoundMessages = soundMessages;
         Ticker = ticker;
     }
