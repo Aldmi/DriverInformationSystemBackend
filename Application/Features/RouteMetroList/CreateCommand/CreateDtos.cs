@@ -2,6 +2,7 @@
 
 public class UowAlertDto
 { 
+    public string StationTag { get; init; }
    public string Description { get; init;  }
    public TickerDto Ticker { get; init; }
    public SoundMessageDto[] SoundMessages { get; init; }

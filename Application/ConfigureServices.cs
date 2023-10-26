@@ -36,7 +36,7 @@ public static class DependencyInjection
 
         services.AddSingleton<JwtTokenGenerator>();
 
-        services.AddHostedService<InitDbHostedService>();
+        
         
         return services;
     }
@@ -86,6 +86,13 @@ public static class DependencyInjection
         });
         services.AddSingleton<IPersoneRepository, MongoPersoneRepository>();
         
+        services.AddSingleton<IDbMigrationService, MongoDbMigrationService>();
+        
+        //1. Выполнить миграцию БД
+        services.AddHostedService<MigrateDbHostedService>();
+        //2. Инициализировать БД
+        services.AddHostedService<InitDbHostedService>();
+
         
         // services.AddScoped<IDomainEventService, DomainEventService>();
         //

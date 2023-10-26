@@ -23,14 +23,14 @@ public class UpdateTrainValidator : AbstractValidator<UpdateTrainCommand>
         RuleFor(v => v.LocomotiveTwo).SetValidator(new LocomotiveDtoValidator());
 
         RuleFor(x => x.Carriges)
-            .Must(list => list.Length is >= 4 and <= 6).WithMessage("Кол-во вагонов должно быть от 4 до 6");
+            .Must(list => list.Length is >= 2 and <= 3).WithMessage("Кол-во вагонов должно быть от 2 до 3");
         
         RuleForEach(x => x.Carriges)
             .ChildRules(carrige =>
             {
                 carrige.RuleFor(v => v.UniqCarrigeNumber)
                     .NotNull().WithMessage("не может быть null")
-                    .Length(4).WithMessage("lenght должно быть 4");
+                    .MinimumLength(3).WithMessage("lenght должно быть не менее 3 цифр");
 
                 carrige.RuleFor(v => v.CameraFirstIpAddress)
                     .Matches(RegexStatic.IpAddress).WithMessage("Ip адресс задан не верно");
@@ -133,7 +133,6 @@ public class UpdateTrainValidator : AbstractValidator<UpdateTrainCommand>
                     context.AddFailure(new ValidationFailure("ip_Address", $"{train.Id} carriges.cameraSecondIpAddress {string.Join(", ", carrigesCameraSecondIpAddress)} повторяются"));
                 }
             }
-            
         });
     }
 
@@ -144,7 +143,7 @@ public class UpdateTrainValidator : AbstractValidator<UpdateTrainCommand>
         {
             RuleFor(v => v.UniqCarrigeNumber)
                 .NotNull().WithMessage("не может быть null")
-                .Length(4).WithMessage("lenght должно быть 4");
+                .MinimumLength(3).WithMessage("lenght должно быть не менее 3 цифр");
 
             RuleForEach(x => x.CameraIpAddress)
                 .ChildRules(ip =>

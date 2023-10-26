@@ -44,6 +44,7 @@ internal sealed class CreateRouteMetroCommandHandler : IRequestHandler<CreateRou
     {
         var uowAlerts = request.Uows.Select(uowDto =>
             new UowAlert(
+                uowDto.StationTag,
                 uowDto.Description,
                 uowDto.SoundMessages.Select(sm => new SoundMessage(sm.Name, sm.Url)).ToList(),
                 new Ticker(uowDto.Ticker.Message))
