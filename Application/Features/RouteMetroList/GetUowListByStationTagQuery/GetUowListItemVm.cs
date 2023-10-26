@@ -1,5 +1,5 @@
 ﻿
-namespace Application.Features.RouteMetroList.GetUowListByStationQuery;
+namespace Application.Features.RouteMetroList.GetUowListByStationTagQuery;
 
 public class UowAlertVm
 {

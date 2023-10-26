@@ -1,21 +1,21 @@
-﻿using Application.Interfaces;
+﻿using Application.Features.RouteMetroList.CreateCommand;
+using Application.Interfaces;
 using FluentValidation;
-using FluentValidation.Results;
 
-namespace Application.Features.RouteMetroList.CreateCommand;
+namespace Application.Features.RouteMetroList.UpdateUowListByStationTagCommand;
 
 
 /// <summary>
 /// 1.Проверить ....
 /// </summary>
-public class CreateRouteMetroValidator : AbstractValidator<CreateRouteMetroCommand>
+public class UpdateUowListByStationTagValidator : AbstractValidator<UpdateUowListByStationTagCommand>
 {
-    public CreateRouteMetroValidator(IRouteMetroRepository routeMetroRepository)
+    public UpdateUowListByStationTagValidator(IRouteMetroRepository routeMetroRepository)
     {
-        RuleFor(v => v.Name)
-            .NotNull().WithMessage("не может быть null")
-            .NotEmpty().WithMessage("не может быть пуст");
-
+        RuleFor(v => v)
+            .Must(command => command.Uows.All(uow => uow.StationTag == command.StationTag))
+            .WithMessage("StationTag Должен быть одинаковым в коллекции uows и в запросе");
+        
         RuleFor(v => v.Uows)
             .Must(items => items != null && items.Any())
             .WithMessage("Uows не может быть пуст");
@@ -46,14 +46,10 @@ public class CreateRouteMetroValidator : AbstractValidator<CreateRouteMetroComma
         
         
         //ПРОВЕРКА В БД
-        RuleFor(v => v).CustomAsync(async (obj, context, token) =>
-        {
-            var isExistRouteByName= await routeMetroRepository.IsExistAsync(rm => rm.Name == obj.Name);
-            if (isExistRouteByName)
-            {
-                context.AddFailure(new ValidationFailure("Route.Name", $"{obj.Name} Уже присутсвтует в БД"));
-            }
-        });
+        // RuleFor(v => v).CustomAsync(async (obj, context, token) =>
+        // {
+        //
+        // });
     }
 }
 

@@ -5,12 +5,12 @@ using Application.Interfaces;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Application.Features.RouteMetroList.GetUowListByStationQuery;
+namespace Application.Features.RouteMetroList.GetUowListByStationTagQuery;
 
 public class GetUowListByStationTagController : ApiControllerBase
 {
     [HttpGet("/api/routes/getUowListByStationTag/{routeName}/{stationTag}")]
-    public async Task<ActionResult<UowAlertVm[]>> Get( string routeName, string stationTag)
+    public async Task<ActionResult<UowAlertVm[]>> Get(string routeName, string stationTag)
     {
         return await Mediator.Send(new GetUowListByStationTagQuery()
         {
