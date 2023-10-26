@@ -40,16 +40,16 @@ public class ExceptionMiddleware
             
             case NotFoundException notFoundException:
                 code = HttpStatusCode.NotFound;
-                result = "Не найден элемент";
+                result = $"Не найден элемент '{notFoundException.Message}'";
                 break;
             
             case DeleteCommandException deleteCommandException:
                 code = HttpStatusCode.Conflict;
-                result = "Ошибка удаления элемента";
+                result = $"Ошибка удаления элемента '{deleteCommandException.Message}'";
                 break;
             
             default:
-                result = $"Неизвестное исключение {ex.Message}";
+                result = $"Неизвестное исключение '{ex.Message}'";
                 _logger.LogError($"Неизвестное исключение {ex}");
                 break;
         }

@@ -14,6 +14,7 @@ public static class RoutesMetroFactory
             new []
             {
                 new UowAlert(
+                    "Заельцовская",
                     "Посадка на Заельцовской",
                     new SoundMessage[]
                     {
@@ -24,6 +25,7 @@ public static class RoutesMetroFactory
                     new Ticker("Следующая станция Гагаринская")),
                 
                 new UowAlert(
+                    "Заельцовская",
                     "Посадка на Гагаринской",
                     new SoundMessage[]
                     {
