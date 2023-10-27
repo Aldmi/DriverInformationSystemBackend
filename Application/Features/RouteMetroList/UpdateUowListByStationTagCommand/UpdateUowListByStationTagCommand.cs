@@ -42,8 +42,6 @@ public class UpdateUowListByStationTagCommand : IRequest<Result<Guid>>
 }
 
 
-
-
 internal sealed class CreateRouteMetroCommandHandler : IRequestHandler<UpdateUowListByStationTagCommand, Result<Guid>>
 {
     private readonly IRouteMetroRepository _routeMetroRepository;
@@ -51,8 +49,7 @@ internal sealed class CreateRouteMetroCommandHandler : IRequestHandler<UpdateUow
     {
         _routeMetroRepository = routeMetroRepository;
     }
-
-
+    
     public async Task<Result<Guid>> Handle(UpdateUowListByStationTagCommand request, CancellationToken cancellationToken)
     {
         var route = await _routeMetroRepository.GetSingleAsync(route => route.Name == request.RouteName);
@@ -68,7 +65,7 @@ internal sealed class CreateRouteMetroCommandHandler : IRequestHandler<UpdateUow
                 new Ticker(uowDto.Ticker.Message))
         ).ToArray();
 
-        var result = route.ChangeUowsList(uowsNew);
+        var result = route.ChangeUowsList(request.StationTag, uowsNew);
         if (result.IsFailure) {
             return result.ConvertFailure<Guid>();
         }

@@ -1,5 +1,4 @@
-﻿using Application.Features.RouteMetroList.CreateCommand;
-using Application.Interfaces;
+﻿using Application.Interfaces;
 using FluentValidation;
 
 namespace Application.Features.RouteMetroList.UpdateUowListByStationTagCommand;
@@ -12,6 +11,11 @@ public class UpdateUowListByStationTagValidator : AbstractValidator<UpdateUowLis
 {
     public UpdateUowListByStationTagValidator(IRouteMetroRepository routeMetroRepository)
     {
+        RuleFor(v => v.StationTag)
+            .NotEmpty()
+            .NotNull()
+            .WithMessage("StationTag не может быть пуст");
+        
         RuleFor(v => v)
             .Must(command => command.Uows.All(uow => uow.StationTag == command.StationTag))
             .WithMessage("StationTag Должен быть одинаковым в коллекции uows и в запросе");
@@ -23,6 +27,16 @@ public class UpdateUowListByStationTagValidator : AbstractValidator<UpdateUowLis
         RuleForEach(v => v.Uows)
             .ChildRules(uowAlert =>
             {
+                uowAlert.RuleFor(v=>v.StationTag)
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("StationTag в Uows не может быть пуст");
+                
+                uowAlert.RuleFor(v=>v.Description)
+                    .NotEmpty()
+                    .NotNull()
+                    .WithMessage("Description в Uows не может быть пуст");
+                
                 uowAlert.RuleFor(v => v.Ticker).NotNull().WithMessage("Ticker не может быть null");
                 uowAlert.RuleFor(v => v.Ticker.Message)
                     .NotNull().WithMessage("Ticker.Message не может быть null")
@@ -43,7 +57,6 @@ public class UpdateUowListByStationTagValidator : AbstractValidator<UpdateUowLis
                             .NotEmpty().WithMessage("soundMessage.Url не может быть пуст");
                     });
             });
-        
         
         //ПРОВЕРКА В БД
         // RuleFor(v => v).CustomAsync(async (obj, context, token) =>

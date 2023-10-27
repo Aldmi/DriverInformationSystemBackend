@@ -39,43 +39,28 @@ public class RouteMetro : Entity<Guid>
     }
 
 
-    public Result ChangeUowsList(UowAlert[] uowsNew)
+    public Result ChangeUowsList(string stationTag, UowAlert[] uowsNew)
     {
         if (!uowsNew.Any()) {
             return Result.Failure($"Список {nameof(uowsNew)} не может быть пуст");
         }
 
-        var stationTag= uowsNew.First().StationTag;
+        if (uowsNew.Any(uow => uow.StationTag != stationTag)) {
+            return Result.Failure($"StationTag {stationTag} не соответсвует значеням переданным в {nameof(uowsNew)}");
+        }
         
         var index = Array.FindIndex(Uows, uowAlert => uowAlert.StationTag == stationTag);
         if (index == -1) {
             return Result.Failure($"{stationTag} не найден по этому маршруту {Name}");
         }
         
+        //Заменили часть массива на новый, uowsNew массив
         var countUows = Uows.Count(uow => uow.StationTag == stationTag);
-        var countUowsNew = uowsNew.Length;
-        
-        if (countUows == countUowsNew)
-        {
-            //РАВНО. Заменяем все элементы
-            foreach (var uowNew in uowsNew)
-            {
-                Uows[index] = uowNew;
-                index++;
-            }
-        }
-        else if (countUows > countUowsNew)
-        {
-            //ПЕРЕДАЛИ МЕНЬШЕ. Заменяем элементы, лишние удаляем
-        }
-        else
-        {
-            //ПЕРЕДАЛИ БОЛЬШЛЕ. Заменяем элементы, новые добавляем
-        }
-        
+        var listUows = Uows.ToList();
+        listUows.RemoveRange(index, countUows);
+        listUows.InsertRange(index, uowsNew);
+        Uows = listUows.ToArray();
         
         return Result.Success();
     }
-    
-    
 }
