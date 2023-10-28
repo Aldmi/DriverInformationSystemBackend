@@ -14,8 +14,7 @@ public class UpdateCarrigesListValidator : AbstractValidator<UpdateCarrigesListC
         {
             var isDublicated= seqNum.FindDublicate().Any();
             return !isDublicated;
-        })
-            .WithMessage("Дубликаты номеров вагонов");
+        }).WithMessage("Дубликаты номеров вагонов");
         
         
         RuleForEach(x => x.CarrigesNumberSeq)
@@ -23,7 +22,7 @@ public class UpdateCarrigesListValidator : AbstractValidator<UpdateCarrigesListC
             {
                 carrigeNumber.RuleFor(v => v)
                     .NotNull().WithMessage("не может быть null")
-                    .Length(4).WithMessage("lenght должно быть 4");
+                    .MinimumLength(3).WithMessage("lenght должно быть не менее 3 цифр");
             });
     }
     
